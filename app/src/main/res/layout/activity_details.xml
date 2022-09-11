@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".DetailsActivity">
+
+    <LinearLayout
+
+        android:id="@+id/linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:drawableBottomCompat="@drawable/companylogo"/>
+
+        <TextView
+
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="middle"
+            android:fontFamily="casual"
+            android:includeFontPadding="false"
+            android:letterSpacing=".3"
+            android:paddingTop="40dp"
+            android:paddingBottom="10dp"
+            android:singleLine="false"
+            android:text="@string/title"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+
+        android:id="@+id/toggleButton2"
+        android:layout_width="240dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="50dp"
+        app:backgroundTint="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout">
+
+        <com.google.android.material.button.MaterialButton
+
+            android:id="@+id/playButton"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:onClick="onPlayMusic"
+            app:backgroundTint="@android:color/transparent"
+            app:icon="@android:drawable/ic_media_play"
+            app:iconGravity="textEnd"
+            app:iconTint="@color/white"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck"/>
+
+        <com.google.android.material.button.MaterialButton
+
+            android:id="@+id/pauseButton"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:onClick="onPauseMusic"
+            app:backgroundTint="@android:color/transparent"
+            app:icon="@android:drawable/ic_media_pause"
+            app:iconGravity="textEnd"
+            app:iconTint="@color/white"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+        <com.google.android.material.button.MaterialButton
+
+            android:id="@+id/stopButton"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:onClick="onStopMusic"
+            app:backgroundTint="@android:color/transparent"
+            app:icon="@drawable/stop"
+            app:iconGravity="textEnd"
+            app:iconTint="@color/white"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

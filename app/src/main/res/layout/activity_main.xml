@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:drawableBottomCompat="@drawable/companylogo"/>
+
+            <TextView
+
+                android:id="@+id/categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:fontFamily="@font/strait"
+                android:letterSpacing=".1"
+                android:lineSpacingExtra="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="20dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="30dp"
+                android:singleLine="false"
+                android:text="@string/categories"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="24sp"/>
+
+            <FrameLayout
+
+                android:layout_width="360dp"
+                android:layout_height="135dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <androidx.cardview.widget.CardView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageView
+
+                        android:id="@+id/stringsImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/black"
+                        android:contentDescription="@string/error"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/guitar"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <Button
+
+                    android:id="@+id/stringsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/transparentbutton"
+                    android:letterSpacing=".6"
+                    android:onClick="onAfficher"
+                    android:text="@string/strings"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+            </FrameLayout>
+
+            <FrameLayout
+
+                android:layout_width="360dp"
+                android:layout_height="135dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <androidx.cardview.widget.CardView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageView
+
+                        android:id="@+id/hornsImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/black"
+                        android:contentDescription="@string/error"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/horns"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <Button
+
+                    android:id="@+id/hornsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/transparentbutton"
+                    android:letterSpacing=".6"
+                    android:onClick="onAfficher"
+                    android:text="@string/horns"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+            </FrameLayout>
+
+            <FrameLayout
+
+                android:layout_width="360dp"
+                android:layout_height="135dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <androidx.cardview.widget.CardView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageView
+
+                        android:id="@+id/drumsImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/black"
+                        android:contentDescription="@string/error"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/drumset"
+                        tools:ignore="ImageContrastCheck"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <Button
+
+                    android:id="@+id/drumsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/transparentbutton"
+                    android:letterSpacing=".6"
+                    android:onClick="onAfficher"
+                    android:text="Drums"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+
+                android:layout_width="360dp"
+                android:layout_height="135dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <androidx.cardview.widget.CardView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageView
+
+                        android:id="@+id/synthsImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/black"
+                        android:contentDescription="@string/error"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/synths"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <Button
+
+                    android:id="@+id/synthsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/transparentbutton"
+                    android:letterSpacing=".6"
+                    android:onClick="onAfficher"
+                    android:text="@string/synths"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
+                    android:textStyle="bold"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+
+                android:layout_width="360dp"
+                android:layout_height="135dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <androidx.cardview.widget.CardView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageView
+
+                        android:id="@+id/worldImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/black"
+                        android:contentDescription="@string/error"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/world"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <Button
+
+                    android:id="@+id/worldButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/transparentbutton"
+                    android:letterSpacing=".6"
+                    android:onClick="onAfficher"
+                    android:text="@string/world"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
+                    android:textStyle="bold"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
