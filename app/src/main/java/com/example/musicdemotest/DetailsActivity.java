@@ -3,13 +3,14 @@ package com.example.musicdemotest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import android.view.View;
 
 import android.widget.TextView;
-
-import android.content.Intent;
 
 import android.media.MediaPlayer;
 
@@ -37,9 +38,11 @@ public class DetailsActivity extends AppCompatActivity {
     private void setWidgets() {
 
 
-        Intent intent = getIntent();
+        Bundle bundle = getIntent().getExtras();
 
-        title = intent.getStringExtra("instrument");
+        title = bundle.getString("instrument");
+
+        mediaPlayer = bundle.getParcelable("mediaplayer");
 
         TextView type = findViewById(R.id.type);
 
@@ -50,12 +53,11 @@ public class DetailsActivity extends AppCompatActivity {
     public void onPlayMusic(View view) {
 
 
-        if (mediaPlayer == null)
+        onStopMusic(view);
 
-            mediaPlayer = MediaPlayer.create(DetailsActivity.this , getResources()
+            mediaPlayer =  MediaPlayer.create(DetailsActivity.this , getResources()
 
-                    .getIdentifier(title.toLowerCase(), "raw", getPackageName()));
-
+                .getIdentifier(translateString(title).toLowerCase(), "raw", getPackageName()));
 
         assert mediaPlayer != null;
 
@@ -79,5 +81,22 @@ public class DetailsActivity extends AppCompatActivity {
 
             mediaPlayer = null;
         }
+    }
+
+
+    private String translateString(String title) {
+
+
+        if (title.equalsIgnoreCase("cordes")) title = "strings";
+
+        if (title.equalsIgnoreCase("vents")) title = "horns";
+
+        if (title.equalsIgnoreCase("percussions")) title = "drums";
+
+        if (title.equalsIgnoreCase("claviers")) title = "synths";
+
+        if (title.equalsIgnoreCase("monde")) title = "world";
+
+        return title;
     }
 }

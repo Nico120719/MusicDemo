@@ -173,12 +173,12 @@
                     android:background="@drawable/transparentbutton"
                     android:letterSpacing=".6"
                     android:onClick="onAfficher"
-                    android:text="Drums"
+                    android:text="@string/drums"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="34sp"
                     android:textStyle="bold"
-                    tools:ignore="TextContrastCheck"/>
+                    tools:ignore="TextContrastCheck" />
 
             </FrameLayout>
 
