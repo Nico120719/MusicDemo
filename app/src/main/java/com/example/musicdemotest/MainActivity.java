@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.synthsButton),
 
                 findViewById(R.id.worldButton));
-        
+
 
         int textSize = MAX_TEXT_SIZE;
 

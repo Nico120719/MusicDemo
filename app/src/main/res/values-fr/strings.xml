@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Music Samples</string>
+    <string name="app_name">Échantillons de Musique</string>
     <string name="title">Instruments</string>
-    <string name="categories">Select from any of the instrument categories below</string>
+    <string name="categories">Choisissez parmi l\'une des catégories ci-dessous</string>
     <string name="strings">cordes</string>
     <string name="horns">vents</string>
     <string name="drums">percussions</string>
