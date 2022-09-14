@@ -52,8 +52,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     public void onPlayMusic(View view) {
 
-
-        onStopMusic(view);
+        if (mediaPlayer == null)
 
             mediaPlayer =  MediaPlayer.create(DetailsActivity.this , getResources()
 
