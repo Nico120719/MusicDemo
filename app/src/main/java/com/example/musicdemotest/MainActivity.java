@@ -4,16 +4,19 @@ package com.example.musicdemotest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
+
+import android.os.Build;
 import android.os.Bundle;
 
-import android.os.Parcelable;
-import android.util.TypedValue;
 import android.view.View;
 
+import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+
+import android.widget.TextView;
 import android.widget.Button;
 
-import android.content.Intent;
-import android.widget.TextView;
+import java.io.IOException;
 
 import java.util.List;
 
@@ -21,15 +24,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
 
-    private MediaPlayer mediaPlayer = MusicPlayer.getInstance();
+    private MyMediaPlayer mediaPlayer;
 
-    private Button stringsButton, hornsButton, drumsButton, synthsButton, worldButton;
-
-    private final int MAX_TEXT_SIZE = 34;
-
-    private final int MIN_TEXT_SIZE = 24;
-
-    private final int THRESHOLD = 7;
+    private boolean wasPaused;
 
 
     @Override
@@ -39,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_main);
+
+        mediaPlayer = MusicPlayer.getInstance().getMediaPlayer();
 
         List<Button> buttons = List.of(
 
@@ -52,13 +51,66 @@ public class MainActivity extends AppCompatActivity {
 
                 findViewById(R.id.worldButton));
 
+        int textSize = 34;
 
-        int textSize = MAX_TEXT_SIZE;
+        int THRESHOLD = 7;
 
-        for (Button button : buttons) if (button.getText().toString().length() > THRESHOLD) textSize = MIN_TEXT_SIZE;
+        int MIN_TEXT_SIZE = 24;
 
-        for (Button button : buttons) button.setTextSize(TextView.AUTO_SIZE_TEXT_TYPE_UNIFORM,textSize);
+        for (Button button : buttons) if (button.getText().toString().length() > THRESHOLD)
 
+            textSize = MIN_TEXT_SIZE;
+
+        for (Button button : buttons)
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+
+                button.setTextSize(TextView.AUTO_SIZE_TEXT_TYPE_UNIFORM,textSize);
+
+    }
+
+    @Override
+    protected void onStart() {
+
+        super.onStart();
+
+
+        if (!wasPaused) {
+
+            AssetFileDescriptor assetFileDescriptor = getResources().openRawResourceFd(R.raw.intro);
+
+            try {
+
+                mediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(),
+
+                        assetFileDescriptor.getStartOffset(),
+
+                        assetFileDescriptor.getLength());
+
+                assetFileDescriptor.close();
+
+                mediaPlayer.prepare();
+
+                mediaPlayer.start();
+
+                mediaPlayer.setOnCompletionListener(MediaPlayer::reset);
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    @Override
+    protected void onPause() {
+
+        super.onPause();
+
+        mediaPlayer.reset();
+
+        wasPaused = true;
     }
 
 
@@ -73,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
         bundle.putString("instrument", buttonText);
 
-        bundle.putParcelable("mediaplayer", (Parcelable) mediaPlayer);
+        bundle.putParcelable("mediaplayer", mediaPlayer);
 
         intent.putExtras(bundle);
 

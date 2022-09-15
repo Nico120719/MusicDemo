@@ -3,9 +3,8 @@ package com.example.musicdemotest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
+import android.content.res.AssetFileDescriptor;
+
 import android.os.Bundle;
 
 import android.view.View;
@@ -14,13 +13,17 @@ import android.widget.TextView;
 
 import android.media.MediaPlayer;
 
+import java.io.IOException;
+
 
 public class DetailsActivity extends AppCompatActivity {
 
 
     private String title;
 
-    MediaPlayer mediaPlayer;
+    MyMediaPlayer mediaPlayer;
+
+    boolean isPaused;
 
 
     @Override
@@ -52,34 +55,73 @@ public class DetailsActivity extends AppCompatActivity {
 
     public void onPlayMusic(View view) {
 
-        if (mediaPlayer == null)
 
-            mediaPlayer =  MediaPlayer.create(DetailsActivity.this , getResources()
+        if (!isPaused) {
 
-                .getIdentifier(translateString(title).toLowerCase(), "raw", getPackageName()));
+            int resId = getResources()
 
-        assert mediaPlayer != null;
+                    .getIdentifier(translateString(title).toLowerCase(), "raw", getPackageName());
 
-        mediaPlayer.start();
+            AssetFileDescriptor assetFileDescriptor = getResources().openRawResourceFd(resId);
+
+            try {
+
+                mediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(),
+
+                        assetFileDescriptor.getStartOffset(),
+
+                        assetFileDescriptor.getLength());
+
+                assetFileDescriptor.close();
+
+                mediaPlayer.prepare();
+
+                mediaPlayer.start();
+
+                mediaPlayer.setOnCompletionListener(MediaPlayer::reset);
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            }
+
+        } else {
+
+            mediaPlayer.start();
+
+            isPaused = false;
+        }
     }
 
 
     public void onPauseMusic(View view) {
 
 
-        if (mediaPlayer != null) mediaPlayer.pause();
+        if (mediaPlayer.isPlaying()) {
+
+            mediaPlayer.pause();
+
+            isPaused = true;
+        }
     }
 
 
     public void onStopMusic(View view) {
 
 
-        if (mediaPlayer != null) {
+        if (mediaPlayer.isPlaying()) {
 
-            mediaPlayer.release();
-
-            mediaPlayer = null;
+            mediaPlayer.reset();
         }
+    }
+
+
+    @Override
+    protected void onPause() {
+
+        super.onPause();
+
+        mediaPlayer.reset();
     }
 
 

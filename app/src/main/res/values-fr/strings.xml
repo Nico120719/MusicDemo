@@ -3,7 +3,7 @@
 
     <string name="app_name">Échantillons de Musique</string>
     <string name="title">Instruments</string>
-    <string name="categories">Choisissez parmi l\'une des catégories ci-dessous</string>
+    <string name="categories">Choisissez parmi l\'une des catégories d\'instruments ci-dessous</string>
     <string name="strings">cordes</string>
     <string name="horns">vents</string>
     <string name="drums">percussions</string>

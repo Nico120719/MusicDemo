@@ -2,29 +2,28 @@ package com.example.musicdemotest;
 
 import android.app.Application;
 
-import android.media.MediaPlayer;
-
 
 public class MusicPlayer extends Application {
 
 
-    private static MediaPlayer instance;
+    private final MyMediaPlayer mediaPlayer = new MyMediaPlayer();
 
 
-    public static MediaPlayer getInstance() {
+    private static final class InstanceHolder {
 
-        if (instance == null) {
+        static final MusicPlayer instance = new MusicPlayer();
+    }
 
-            synchronized (MediaPlayer.class) {
+    public static MusicPlayer getInstance() {
 
-                if (instance == null) {
+        return InstanceHolder.instance;
+    }
 
-                    new MediaPlayer();
-                }
-            }
-        }
 
-        return instance;
+    public MyMediaPlayer getMediaPlayer() {
+
+        return mediaPlayer;
     }
 }
+
 
