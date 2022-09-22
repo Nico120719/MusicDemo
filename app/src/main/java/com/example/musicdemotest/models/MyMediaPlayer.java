@@ -1,4 +1,4 @@
-package com.example.musicdemotest;
+package com.example.musicdemotest.models;
 
 import android.media.MediaPlayer;
 

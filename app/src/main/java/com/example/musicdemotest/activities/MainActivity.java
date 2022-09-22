@@ -1,4 +1,4 @@
-package com.example.musicdemotest;
+package com.example.musicdemotest.activities;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +15,11 @@ import android.content.res.AssetFileDescriptor;
 
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.example.musicdemotest.models.MusicPlayer;
+import com.example.musicdemotest.models.MyMediaPlayer;
+import com.example.musicdemotest.R;
 
 import java.io.IOException;
 
@@ -66,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
 
                 button.setTextSize(TextView.AUTO_SIZE_TEXT_TYPE_UNIFORM,textSize);
-
     }
 
     @Override
@@ -74,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
 
         super.onStart();
 
+        String language = getResources().getConfiguration().locale.getDisplayLanguage();
+
+        Toast.makeText(MainActivity.this, language, Toast.LENGTH_LONG).show();
 
         if (!wasPaused) {
 

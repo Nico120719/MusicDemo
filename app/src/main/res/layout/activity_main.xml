@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <ScrollView
 
@@ -85,14 +85,16 @@
                     android:id="@+id/stringsButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/transparentbutton"
+                    android:state_pressed="true"
+                    android:background="?android:selectableItemBackground"
                     android:letterSpacing=".6"
                     android:onClick="onAfficher"
                     android:text="@string/strings"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="34sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="UsingOnClickInXml" />
 
             </FrameLayout>
 
@@ -127,14 +129,15 @@
                     android:id="@+id/hornsButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/transparentbutton"
+                    android:background="?android:selectableItemBackground"
                     android:letterSpacing=".6"
                     android:onClick="onAfficher"
                     android:text="@string/horns"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="34sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="UsingOnClickInXml" />
 
             </FrameLayout>
 
@@ -170,7 +173,7 @@
                     android:id="@+id/drumsButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/transparentbutton"
+                    android:background="?android:selectableItemBackground"
                     android:letterSpacing=".6"
                     android:onClick="onAfficher"
                     android:text="@string/drums"
@@ -178,7 +181,7 @@
                     android:textColor="@color/white"
                     android:textSize="34sp"
                     android:textStyle="bold"
-                    tools:ignore="TextContrastCheck" />
+                    tools:ignore="TextContrastCheck,UsingOnClickInXml" />
 
             </FrameLayout>
 
@@ -213,14 +216,15 @@
                     android:id="@+id/synthsButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/transparentbutton"
+                    android:background="?android:selectableItemBackground"
                     android:letterSpacing=".6"
                     android:onClick="onAfficher"
                     android:text="@string/synths"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="34sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    tools:ignore="UsingOnClickInXml" />
 
             </FrameLayout>
 
@@ -255,14 +259,15 @@
                     android:id="@+id/worldButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/transparentbutton"
+                    android:background="?android:selectableItemBackground"
                     android:letterSpacing=".6"
                     android:onClick="onAfficher"
                     android:text="@string/world"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="34sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    tools:ignore="UsingOnClickInXml" />
 
             </FrameLayout>
 

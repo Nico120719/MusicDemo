@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".DetailsActivity">
+    tools:context=".activities.DetailsActivity">
 
     <LinearLayout
 
@@ -56,7 +56,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:gravity="center"
-            app:backgroundTint="@android:color/transparent"
             app:layout_constraintTop_toBottomOf="@+id/linearlayout"
             tools:layout_editor_absoluteX="86dp">
 
@@ -64,40 +63,39 @@
 
                 android:id="@+id/playButton"
                 style="@style/Widget.MaterialComponents.Button.Icon"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:onClick="onPlayMusic"
-                app:backgroundTint="@android:color/transparent"
                 app:icon="@android:drawable/ic_media_play"
                 app:iconGravity="textEnd"
-                app:iconTint="@color/white"
-                tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+                app:iconSize="20dp"
+                tools:ignore="SpeakableTextPresentCheck,
+                DuplicateSpeakableTextCheck,
+                UsingOnClickInXml,"/>
 
             <com.google.android.material.button.MaterialButton
 
                 android:id="@+id/pauseButton"
                 style="@style/Widget.MaterialComponents.Button.Icon"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:onClick="onPauseMusic"
-                app:backgroundTint="@android:color/transparent"
                 app:icon="@android:drawable/ic_media_pause"
+                app:iconSize="20dp"
                 app:iconGravity="textEnd"
-                app:iconTint="@color/white"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck, UsingOnClickInXml"/>
 
             <com.google.android.material.button.MaterialButton
 
                 android:id="@+id/stopButton"
                 style="@style/Widget.MaterialComponents.Button.Icon"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:onClick="onStopMusic"
-                app:backgroundTint="@android:color/transparent"
                 app:icon="@drawable/stop"
+                app:iconSize="30dp"
                 app:iconGravity="textEnd"
-                app:iconTint="@color/white"
-                tools:ignore="SpeakableTextPresentCheck"/>
+                tools:ignore="SpeakableTextPresentCheck, UsingOnClickInXml"/>
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
 

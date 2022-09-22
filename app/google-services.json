@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1064971292682",
+    "project_id": "music-samples",
+    "storage_bucket": "music-samples.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064971292682:android:59f9d641c3188393ce4ff3",
+        "android_client_info": {
+          "package_name": "com.example.musicdemotest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064971292682-e96v50e8qqd0lscb5c6m2938h0e2ju2o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABTiQTrAQE4jRPB_-SlVnEaGw5DOHzT0I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064971292682-e96v50e8qqd0lscb5c6m2938h0e2ju2o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

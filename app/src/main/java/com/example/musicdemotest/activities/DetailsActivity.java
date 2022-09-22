@@ -1,4 +1,4 @@
-package com.example.musicdemotest;
+package com.example.musicdemotest.activities;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import android.media.MediaPlayer;
+
+import com.example.musicdemotest.models.MyMediaPlayer;
+import com.example.musicdemotest.R;
 
 import java.io.IOException;
 
@@ -56,7 +59,7 @@ public class DetailsActivity extends AppCompatActivity {
     public void onPlayMusic(View view) {
 
 
-        if (!isPaused) {
+        if (!isPaused && !mediaPlayer.isPlaying()) {
 
             int resId = getResources()
 
@@ -85,7 +88,7 @@ public class DetailsActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-        } else {
+        } else if (isPaused) {
 
             mediaPlayer.start();
 
