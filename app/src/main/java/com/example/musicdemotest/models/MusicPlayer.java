@@ -14,6 +14,7 @@ public class MusicPlayer extends Application {
         static final MusicPlayer instance = new MusicPlayer();
     }
 
+
     public static MusicPlayer getInstance() {
 
         return InstanceHolder.instance;

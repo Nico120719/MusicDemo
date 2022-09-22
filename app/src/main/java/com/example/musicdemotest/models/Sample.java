@@ -23,6 +23,10 @@ public class Sample {
 
     private boolean collection;
 
+    private String messageFR;
+
+    private String messageEN;
+
 
     public Sample() {}
 
@@ -160,5 +164,29 @@ public class Sample {
     public void setCollection(boolean collection) {
 
         this.collection = collection;
+    }
+
+
+    public String getMessageFR() {
+
+        return messageFR;
+    }
+
+
+    public void setMessageFR(String message) {
+
+        this.messageFR = message;
+    }
+
+
+    public String getMessageEN() {
+
+        return messageEN;
+    }
+
+
+    public void setMessageEN(String message) {
+
+        this.messageEN = message;
     }
 }

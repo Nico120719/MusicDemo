@@ -17,6 +17,7 @@ public class MyMediaPlayer extends MediaPlayer implements Parcelable {
             return new MyMediaPlayer();
         }
 
+
         @Override
         public MyMediaPlayer[] newArray(int size) {
 
@@ -24,11 +25,13 @@ public class MyMediaPlayer extends MediaPlayer implements Parcelable {
         }
     };
 
+
     @Override
     public int describeContents() {
 
         return 0;
     }
+
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {}

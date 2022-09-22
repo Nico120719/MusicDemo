@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         String language = getResources().getConfiguration().locale.getDisplayLanguage();
 
-        Toast.makeText(MainActivity.this, language, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, language, Toast.LENGTH_LONG).show();
 
         if (!wasPaused) {
 
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle bundle = new Bundle();
 
-        Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+        Intent intent = new Intent(this, DetailsActivity.class);
 
         bundle.putString("instrument", buttonText);
 
