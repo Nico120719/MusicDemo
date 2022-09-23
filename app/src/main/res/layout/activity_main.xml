@@ -94,7 +94,7 @@
                     android:textColor="@color/white"
                     android:textSize="34sp"
                     android:textStyle="bold"
-                    tools:ignore="UsingOnClickInXml" />
+                    tools:ignore="UsingOnClickInXml"/>
 
             </FrameLayout>
 
@@ -137,7 +137,7 @@
                     android:textColor="@color/white"
                     android:textSize="34sp"
                     android:textStyle="bold"
-                    tools:ignore="UsingOnClickInXml" />
+                    tools:ignore="UsingOnClickInXml"/>
 
             </FrameLayout>
 
@@ -181,7 +181,7 @@
                     android:textColor="@color/white"
                     android:textSize="34sp"
                     android:textStyle="bold"
-                    tools:ignore="TextContrastCheck,UsingOnClickInXml" />
+                    tools:ignore="TextContrastCheck,UsingOnClickInXml"/>
 
             </FrameLayout>
 
@@ -224,7 +224,7 @@
                     android:textColor="@color/white"
                     android:textSize="34sp"
                     android:textStyle="bold"
-                    tools:ignore="UsingOnClickInXml" />
+                    tools:ignore="UsingOnClickInXml"/>
 
             </FrameLayout>
 
@@ -267,7 +267,7 @@
                     android:textColor="@color/white"
                     android:textSize="34sp"
                     android:textStyle="bold"
-                    tools:ignore="UsingOnClickInXml" />
+                    tools:ignore="UsingOnClickInXml"/>
 
             </FrameLayout>
 

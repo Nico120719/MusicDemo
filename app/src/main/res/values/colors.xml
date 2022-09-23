@@ -6,5 +6,7 @@
     <color name="grey">#afaeae</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="progressempty">#5263CE</color>
+    <color name="progressfilling">#D2328E</color>
 
 </resources>
