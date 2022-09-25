@@ -3,6 +3,7 @@ package com.example.musicdemotest.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.res.AssetFileDescriptor;
 
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import android.media.MediaPlayer;
 
+import com.example.musicdemotest.Utils.Download;
 import com.example.musicdemotest.models.MyMediaPlayer;
 import com.example.musicdemotest.R;
 
@@ -78,7 +80,8 @@ public class DetailsActivity extends AppCompatActivity  {
                 progressBar.setMax(mediaPlayer.getDuration()));
     }
 
-    public void onPlayMusic(View view) {
+    @SuppressLint("MissingPermission")
+    public void onPlayMusic(View view) throws IOException {
 
         if (!isPaused && !mediaPlayer.isPlaying()) {
 
@@ -86,31 +89,32 @@ public class DetailsActivity extends AppCompatActivity  {
 
                     .getIdentifier(translateString(title).toLowerCase(), "raw", getPackageName());
 
-            AssetFileDescriptor assetFileDescriptor = getResources().openRawResourceFd(resId);
+            try (AssetFileDescriptor assetFileDescriptor = getResources().openRawResourceFd(resId)) {
 
-            try {
+                try {
 
-                mediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(),
+                    mediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(),
 
-                        assetFileDescriptor.getStartOffset(),
+                            assetFileDescriptor.getStartOffset(),
 
-                        assetFileDescriptor.getLength());
+                            assetFileDescriptor.getLength());
 
-                assetFileDescriptor.close();
+                    assetFileDescriptor.close();
 
-                mediaPlayer.prepare();
+                    mediaPlayer.prepare();
 
-                mediaPlayer.start();
+                    mediaPlayer.start();
 
-                mediaPlayer.setLooping(false);
+                    mediaPlayer.setLooping(false);
 
-                updateProgressbar();
+                    updateProgressbar();
 
-                mediaPlayer.setOnCompletionListener(MediaPlayer::reset);
+                    mediaPlayer.setOnCompletionListener(MediaPlayer::reset);
 
-            } catch (IOException e) {
+                } catch (Exception e) {
 
-                e.printStackTrace();
+                    e.printStackTrace();
+                }
             }
 
         } else if (isPaused) {
@@ -165,6 +169,17 @@ public class DetailsActivity extends AppCompatActivity  {
         super.onPause();
 
         mediaPlayer.reset();
+    }
+
+
+    @SuppressLint("MissingPermission")
+    public void onDownload(View view) {
+
+        int resId = getResources()
+
+                .getIdentifier(translateString(title).toLowerCase(), "raw", getPackageName());
+
+        Download.saveSample(this, resId, translateString(title));
     }
 
 
