@@ -10,5 +10,7 @@
     <string name="synths">synths</string>
     <string name="world">world</string>
     <string name="error"> </string>
+    <string name="downloadsuccessful">Audio file downloaded to Internal Storage !</string>
+    <string name="downloadfailed">Could not download audio file !</string>
 
 </resources>

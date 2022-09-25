@@ -7,6 +7,8 @@ import android.os.Environment;
 
 import android.widget.Toast;
 
+import com.example.musicdemotest.R;
+
 import java.io.InputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -43,14 +45,14 @@ public class Download {
 
             fileOutputStream.close();
 
-            Toast.makeText(context, "Audio file downloaded to Internal Storage !", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, context.getString(R.string.downloadsuccessful), Toast.LENGTH_LONG).show();
 
 
         } catch (IOException e) {
 
             e.printStackTrace();
 
-            Toast.makeText(context, "Could not download audio file !", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, context.getString(R.string.downloadfailed), Toast.LENGTH_LONG).show();
         }
     }
 }

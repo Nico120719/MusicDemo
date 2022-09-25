@@ -10,5 +10,7 @@
     <string name="synths">claviers</string>
     <string name="world">monde</string>
     <string name="error"> </string>
+    <string name="downloadsuccessful">Fichier audio téléchargé sur le stockage interne !</string>
+    <string name="downloadfailed">Impossible de télécharger le fichier audio !</string>
 
 </resources>

@@ -2,6 +2,7 @@ package com.example.musicdemotest.activities;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.content.res.AssetFileDescriptor;
@@ -14,11 +15,10 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import android.media.MediaPlayer;
-
+import com.example.musicdemotest.*;
 import com.example.musicdemotest.Utils.Download;
 import com.example.musicdemotest.models.MyMediaPlayer;
-import com.example.musicdemotest.R;
+import com.google.android.material.button.MaterialButton;
 
 import java.io.IOException;
 
@@ -28,15 +28,15 @@ public class DetailsActivity extends AppCompatActivity  {
 
     private String title;
 
-    MyMediaPlayer mediaPlayer;
+    private MyMediaPlayer mediaPlayer;
 
-    ProgressBar progressBar;
+    private MaterialButton playButton;
+
+    private ProgressBar progressBar;
 
     boolean isPaused;
 
-    Runnable runnable;
-
-    Handler handler;
+    private Handler handler;
 
 
     @Override
@@ -61,6 +61,8 @@ public class DetailsActivity extends AppCompatActivity  {
         title = bundle.getString("instrument");
 
         mediaPlayer = bundle.getParcelable("mediaplayer");
+
+        playButton = (MaterialButton) findViewById(R.id.playButton);
 
         progressBar = findViewById(R.id.progressBar);
 
@@ -107,9 +109,21 @@ public class DetailsActivity extends AppCompatActivity  {
 
                     mediaPlayer.setLooping(false);
 
+                    playButton.setIcon(ContextCompat.getDrawable(this, android.R.drawable.ic_media_pause));
+
                     updateProgressbar();
 
-                    mediaPlayer.setOnCompletionListener(MediaPlayer::reset);
+//                    mediaPlayer.setOnCompletionListener(MediaPlayer::reset);
+
+                    mediaPlayer.setOnCompletionListener(mediaPlayer -> {
+
+                        mediaPlayer.reset();
+
+                        playButton.setIcon(ContextCompat.getDrawable(getApplicationContext(),
+
+                                android.R.drawable.ic_media_play));
+
+                    });
 
                 } catch (Exception e) {
 
@@ -121,7 +135,17 @@ public class DetailsActivity extends AppCompatActivity  {
 
             mediaPlayer.start();
 
+            playButton.setIcon(ContextCompat.getDrawable(this, android.R.drawable.ic_media_pause));
+
             isPaused = false;
+
+        } else if (mediaPlayer.isPlaying()) {
+
+            mediaPlayer.pause();
+
+            playButton.setIcon(ContextCompat.getDrawable(this, android.R.drawable.ic_media_play));
+
+            isPaused = true;
         }
     }
 
@@ -133,34 +157,10 @@ public class DetailsActivity extends AppCompatActivity  {
 
         progressBar.setProgress(currentPosition);
 
-        runnable = this::updateProgressbar;
+        Runnable runnable = this::updateProgressbar;
 
         handler.postDelayed(runnable, 1);
 }
-
-
-    public void onPauseMusic(View view) {
-
-
-        if (mediaPlayer.isPlaying()) {
-
-            mediaPlayer.pause();
-
-            isPaused = true;
-        }
-    }
-
-
-    public void onStopMusic(View view) {
-
-
-        if (mediaPlayer.isPlaying() || isPaused) {
-
-            mediaPlayer.reset();
-
-            isPaused = false;
-        }
-    }
 
 
     @Override

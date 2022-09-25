@@ -75,30 +75,6 @@
 
             <com.google.android.material.button.MaterialButton
 
-                android:id="@+id/pauseButton"
-                style="@style/Widget.MaterialComponents.Button.Icon"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:onClick="onPauseMusic"
-                app:icon="@android:drawable/ic_media_pause"
-                app:iconGravity="textEnd"
-                app:iconSize="20dp"
-                tools:ignore="SpeakableTextPresentCheck, UsingOnClickInXml"/>
-
-            <com.google.android.material.button.MaterialButton
-
-                android:id="@+id/stopdButton"
-                style="@style/Widget.MaterialComponents.Button.Icon"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:onClick="onStopMusic"
-                app:icon="@drawable/stop"
-                app:iconGravity="textEnd"
-                app:iconSize="30dp"
-                tools:ignore="SpeakableTextPresentCheck, UsingOnClickInXml"/>
-
-            <com.google.android.material.button.MaterialButton
-
                 android:id="@+id/downloadButton"
                 style="@style/Widget.MaterialComponents.Button.Icon"
                 android:layout_width="60dp"
@@ -107,7 +83,7 @@
                 app:icon="@drawable/downloadicon"
                 app:iconGravity="textEnd"
                 app:iconSize="20dp"
-                tools:ignore="SpeakableTextPresentCheck, UsingOnClickInXml" />
+                tools:ignore="SpeakableTextPresentCheck, UsingOnClickInXml"/>
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
