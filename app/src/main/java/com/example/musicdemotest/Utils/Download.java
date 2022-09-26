@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.example.musicdemotest.R;
 
+import java.io.File;
 import java.io.InputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -24,11 +25,15 @@ public class Download {
 
             InputStream inputStream = context.getResources().openRawResource(resId);
 
-            FileOutputStream fileOutputStream = new FileOutputStream
+            File directory = new File(Environment.getExternalStorageDirectory()
 
-                    (Environment.getExternalStorageDirectory()
+                    .getAbsolutePath() + "/Download/Marco_&_Nico_Samples/");
 
-                            .getAbsolutePath() + "/Download/" + title + ".wav");
+            if (!directory.exists()) directory.mkdir();
+
+            File sample = new File(directory, title + ".wav");
+
+            FileOutputStream fileOutputStream = new FileOutputStream(sample);
 
             byte[] buf = new byte[1024];
 
@@ -46,7 +51,6 @@ public class Download {
             fileOutputStream.close();
 
             Toast.makeText(context, context.getString(R.string.downloadsuccessful), Toast.LENGTH_LONG).show();
-
 
         } catch (IOException e) {
 

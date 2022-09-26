@@ -86,26 +86,9 @@ public class MainActivity extends AppCompatActivity {
 
             AssetFileDescriptor assetFileDescriptor = getResources().openRawResourceFd(R.raw.intro);
 
-            try {
+            onStartMusic(mediaPlayer, assetFileDescriptor);
 
-                mediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(),
-
-                        assetFileDescriptor.getStartOffset(),
-
-                        assetFileDescriptor.getLength());
-
-                assetFileDescriptor.close();
-
-                mediaPlayer.prepare();
-
-                mediaPlayer.start();
-
-                mediaPlayer.setOnCompletionListener(MediaPlayer::reset);
-
-            } catch (IOException e) {
-
-                e.printStackTrace();
-            }
+            mediaPlayer.setOnCompletionListener(MediaPlayer::reset);
         }
     }
 
@@ -118,6 +101,30 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer.reset();
 
         wasPaused = true;
+    }
+
+
+    public static void onStartMusic(MyMediaPlayer mediaPlayer, AssetFileDescriptor assetFileDescriptor) {
+
+
+        try {
+
+            mediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(),
+
+                    assetFileDescriptor.getStartOffset(),
+
+                    assetFileDescriptor.getLength());
+
+            assetFileDescriptor.close();
+
+            mediaPlayer.prepare();
+
+            mediaPlayer.start();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
     }
 
 

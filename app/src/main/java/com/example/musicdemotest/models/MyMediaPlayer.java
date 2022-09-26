@@ -27,10 +27,7 @@ public class MyMediaPlayer extends MediaPlayer implements Parcelable {
 
 
     @Override
-    public int describeContents() {
-
-        return 0;
-    }
+    public int describeContents() { return 0; }
 
 
     @Override

@@ -11,7 +11,7 @@
 
     <LinearLayout
 
-        android:id="@+id/linearlayout"
+        android:id="@+id/linearlayoutvertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black"
@@ -48,60 +48,64 @@
             android:textSize="34sp"
             android:textStyle="bold|italic"/>
 
+        <LinearLayout
 
-        <com.google.android.material.button.MaterialButtonToggleGroup
-
-            android:id="@+id/toggleButton"
+            android:id="@+id/linearlayouthorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@+id/linearlayout"
-            tools:layout_editor_absoluteX="86dp">
+            android:background="@color/black"
+            android:paddingTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.button.MaterialButton
 
                 android:id="@+id/playButton"
                 style="@style/Widget.MaterialComponents.Button.Icon"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:onClick="onPlayMusic"
                 app:icon="@android:drawable/ic_media_play"
                 app:iconGravity="textEnd"
                 app:iconSize="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 tools:ignore="SpeakableTextPresentCheck,
                 DuplicateSpeakableTextCheck,
                 UsingOnClickInXml,"/>
+
+            <ProgressBar
+
+                android:id="@+id/progressBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="205dp"
+                android:layout_height="10dp"
+
+                android:layout_marginTop="20dp"
+
+                android:gravity="center"
+                android:max="100"
+                android:progressDrawable="@drawable/progressbar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
 
             <com.google.android.material.button.MaterialButton
 
                 android:id="@+id/downloadButton"
                 style="@style/Widget.MaterialComponents.Button.Icon"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:onClick="onDownload"
                 app:icon="@drawable/downloadicon"
                 app:iconGravity="textEnd"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 app:iconSize="20dp"
                 tools:ignore="SpeakableTextPresentCheck, UsingOnClickInXml"/>
 
-        </com.google.android.material.button.MaterialButtonToggleGroup>
-
-        <ProgressBar
-
-            android:id="@+id/progressBar"
-            style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="35dp"
-            android:max="100"
-
-            android:progressDrawable="@drawable/progressbar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toggleButton"/>
+        </LinearLayout>
 
     </LinearLayout>
 
