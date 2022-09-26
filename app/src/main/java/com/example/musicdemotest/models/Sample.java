@@ -17,6 +17,8 @@ public class Sample {
 
     private String descriptionEN;
 
+    private String duree;
+
     private MaterialButton button;
 
     private ProgressBar progressBar;
@@ -31,7 +33,9 @@ public class Sample {
     public Sample() {}
 
 
-    public Sample(String title, String category, String descriptionFR, String descriptionEN, boolean collection) {
+    public Sample(String title, String category, String descriptionFR, String descriptionEN,
+
+                  String duree, boolean collection) {
 
         this.title = title;
 
@@ -40,6 +44,8 @@ public class Sample {
         this.descriptionFR = descriptionFR;
 
         this.descriptionEN = descriptionEN;
+
+        this.duree = duree;
 
         this.collection = collection;
     }
@@ -47,7 +53,7 @@ public class Sample {
 
     public Sample(String title, String category, String descriptionFR, String descriptionEN,
 
-                  MaterialButton button, boolean collection) {
+                  String duree, MaterialButton button, boolean collection) {
 
         this.title = title;
 
@@ -56,6 +62,8 @@ public class Sample {
         this.descriptionFR = descriptionFR;
 
         this.descriptionEN = descriptionEN;
+
+        this.duree= duree;
 
         this.button = button;
 
@@ -65,7 +73,7 @@ public class Sample {
 
     public Sample(String title, String category, String descriptionFR, String descriptionEN,
 
-                  MaterialButton button, ProgressBar progressBar, boolean collection) {
+                  String duree, MaterialButton button, ProgressBar progressBar, boolean collection) {
 
         this.title = title;
 
@@ -74,6 +82,8 @@ public class Sample {
         this.descriptionFR = descriptionFR;
 
         this.descriptionEN = descriptionEN;
+
+        this.duree = duree;
 
         this.button = button;
 
@@ -128,6 +138,18 @@ public class Sample {
     public void setDescriptionEN(String descriptionEN) {
 
         this.descriptionEN = descriptionEN;
+    }
+
+
+    public String getDuree() {
+
+        return duree;
+    }
+
+
+    public void setDuree(String duree) {
+
+        this.duree = duree;
     }
 
 
