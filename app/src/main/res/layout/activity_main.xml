@@ -31,7 +31,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                app:drawableBottomCompat="@drawable/companylogo"/>
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                app:drawableBottomCompat="@drawable/companylogo" />
 
             <TextView
 
