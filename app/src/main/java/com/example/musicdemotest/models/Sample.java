@@ -3,13 +3,17 @@ package com.example.musicdemotest.models;
 
 import android.widget.ProgressBar;
 
+import com.example.musicdemotest.activities.ListActivity;
 import com.google.android.material.button.MaterialButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Sample {
 
 
-    private String title;
+    private String name;
 
     private String category;
 
@@ -33,11 +37,11 @@ public class Sample {
     public Sample() {}
 
 
-    public Sample(String title, String category, String descriptionFR, String descriptionEN,
+    public Sample(String name, String category, String descriptionFR, String descriptionEN,
 
                   String duree, boolean collection) {
 
-        this.title = title;
+        this.name = name;
 
         this.category = category;
 
@@ -51,11 +55,11 @@ public class Sample {
     }
 
 
-    public Sample(String title, String category, String descriptionFR, String descriptionEN,
+    public Sample(String name, String category, String descriptionFR, String descriptionEN,
 
                   String duree, MaterialButton button, boolean collection) {
 
-        this.title = title;
+        this.name = name;
 
         this.category = category;
 
@@ -71,11 +75,11 @@ public class Sample {
     }
 
 
-    public Sample(String title, String category, String descriptionFR, String descriptionEN,
+    public Sample(String name, String category, String descriptionFR, String descriptionEN,
 
                   String duree, MaterialButton button, ProgressBar progressBar, boolean collection) {
 
-        this.title = title;
+        this.name = name;
 
         this.category = category;
 
@@ -93,15 +97,15 @@ public class Sample {
     }
 
 
-    public String getTitle() {
+    public String getName() {
 
-        return title;
+        return name;
     }
 
 
-    public void setTitle(String title) {
+    public void setName(String name) {
 
-        this.title = title;
+        this.name = name;
     }
 
 
@@ -210,5 +214,105 @@ public class Sample {
     public void setMessageEN(String message) {
 
         this.messageEN = message;
+    }
+
+
+    public static String translateString(String categorie) {
+
+
+        if (categorie.equalsIgnoreCase("cordes")) categorie = "strings";
+
+        if (categorie.equalsIgnoreCase("vents")) categorie = "horns";
+
+        if (categorie.equalsIgnoreCase("percussions")) categorie = "drums";
+
+        if (categorie.equalsIgnoreCase("claviers")) categorie = "synths";
+
+        if (categorie.equalsIgnoreCase("monde")) categorie = "world";
+
+        return categorie;
+    }
+
+
+    public static ArrayList<Sample> getSamples() {
+
+
+        return new ArrayList<>(List.of(
+
+                new Sample("drums.wav",
+
+                        "Drums",
+
+                        "Échantillon de percussion lent style Trip Hop",
+
+                        "Slow Trip Hop drum sample",
+
+                        "0:15",
+
+                        false),
+
+                new Sample("horns.wav",
+
+                        "Horns",
+
+                        "Échantillon de trompette Jazz lent",
+
+                        "Slow Jazz trumpet sample",
+
+                        "0:13",
+
+                        false),
+
+                new Sample("strings.wav",
+
+                        "Strings",
+
+                        "Grattement de guitare accoustique",
+
+                        "Accoustic guitar strum sample",
+
+                        "0:06",
+
+                        false),
+
+                new Sample("synths.wav",
+
+                        "Synths",
+
+                        "Clavier électonique Pop",
+
+                        "Pop electonic synth sample",
+
+                        "0:09",
+
+                        false),
+
+                new Sample("world.wav",
+
+                        "World",
+
+                        "Échantllon koto oriental",
+
+                        "Oriental koto sample",
+
+                        "0:09",
+
+                        false)
+        ));
+    }
+
+    public static ArrayList<Sample> filterSamples(String categorie) {
+
+
+        ArrayList<Sample> filteredSamples = new ArrayList<>();
+
+        for (Sample sample : getSamples()) {
+
+            if (sample.getCategory().equalsIgnoreCase(translateString(categorie)))
+
+                filteredSamples.add(sample);
+        }
+
+        return filteredSamples;
     }
 }

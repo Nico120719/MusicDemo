@@ -1,12 +1,14 @@
 package com.example.musicdemotest.activities;
 
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+import com.example.musicdemotest.R;
+import com.example.musicdemotest.Utils.Download;
+import com.example.musicdemotest.models.MusicPlayer;
 
 import android.annotation.SuppressLint;
+
 import android.content.res.AssetFileDescriptor;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -15,9 +17,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.musicdemotest.*;
-import com.example.musicdemotest.Utils.Download;
-import com.example.musicdemotest.models.MyMediaPlayer;
+import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -25,9 +27,11 @@ import com.google.android.material.button.MaterialButton;
 public class DetailsActivity extends AppCompatActivity  {
 
 
-    private String title;
+    private String sample;
 
-    private MyMediaPlayer mediaPlayer;
+    private String sampleRootName;
+
+    private MediaPlayer mediaPlayer;
 
     private MaterialButton playButton;
 
@@ -41,8 +45,8 @@ public class DetailsActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
 
+        super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_details);
 
@@ -55,11 +59,11 @@ public class DetailsActivity extends AppCompatActivity  {
     private void setWidgets() {
 
 
-        Bundle bundle = getIntent().getExtras();
+        sample = getIntent().getStringExtra("sample");
 
-        title = bundle.getString("instrument");
+        sampleRootName = sample.substring(0, sample.length() - 4);
 
-        mediaPlayer = bundle.getParcelable("mediaplayer");
+        mediaPlayer = MusicPlayer.getInstance().getMediaPlayer();
 
         playButton = (MaterialButton) findViewById(R.id.playButton);
 
@@ -67,9 +71,9 @@ public class DetailsActivity extends AppCompatActivity  {
 
         handler = new Handler();
 
-        TextView type = findViewById(R.id.type);
+        TextView nom = findViewById(R.id.nom);
 
-        type.setText(title);
+        nom.setText(sample);
     }
 
 
@@ -88,7 +92,7 @@ public class DetailsActivity extends AppCompatActivity  {
 
             int resId = getResources()
 
-                    .getIdentifier(translateString(title).toLowerCase(), "raw", getPackageName());
+                    .getIdentifier(sampleRootName, "raw", getPackageName());
 
             AssetFileDescriptor assetFileDescriptor = getResources().openRawResourceFd(resId);
 
@@ -142,6 +146,7 @@ public class DetailsActivity extends AppCompatActivity  {
     @Override
     protected void onPause() {
 
+
         super.onPause();
 
         mediaPlayer.reset();
@@ -151,27 +156,11 @@ public class DetailsActivity extends AppCompatActivity  {
     @SuppressLint("MissingPermission")
     public void onDownload(View view) {
 
+
         int resId = getResources()
 
-                .getIdentifier(translateString(title).toLowerCase(), "raw", getPackageName());
+                .getIdentifier(sampleRootName, "raw", getPackageName());
 
-        Download.saveSample(this, resId, translateString(title));
-    }
-
-
-    private String translateString(String title) {
-
-
-        if (title.equalsIgnoreCase("cordes")) title = "strings";
-
-        if (title.equalsIgnoreCase("vents")) title = "horns";
-
-        if (title.equalsIgnoreCase("percussions")) title = "drums";
-
-        if (title.equalsIgnoreCase("claviers")) title = "synths";
-
-        if (title.equalsIgnoreCase("monde")) title = "world";
-
-        return title;
+        Download.saveSample(this, resId, sample);
     }
 }

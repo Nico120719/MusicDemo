@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Music Samples</string>
-    <string name="title">Instruments</string>
     <string name="categories">Select from any of the instrument categories below</string>
     <string name="strings">strings</string>
     <string name="horns">horns</string>
@@ -12,5 +11,8 @@
     <string name="error"> </string>
     <string name="downloadsuccessful">Audio file downloaded to Internal Storage !</string>
     <string name="downloadfailed">Could not download audio file !</string>
+    <string name="sample">sample.wav</string>
+    <string name="description">Description</string>
+    <string name="duree">Time</string>
 
 </resources>

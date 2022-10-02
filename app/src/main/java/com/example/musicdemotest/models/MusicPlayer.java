@@ -1,12 +1,13 @@
 package com.example.musicdemotest.models;
 
 import android.app.Application;
+import android.media.MediaPlayer;
 
 
 public class MusicPlayer extends Application {
 
 
-    private final MyMediaPlayer mediaPlayer = new MyMediaPlayer();
+    private final MediaPlayer mediaPlayer = new MediaPlayer();
 
 
     private static final class InstanceHolder {
@@ -21,7 +22,7 @@ public class MusicPlayer extends Application {
     }
 
 
-    public MyMediaPlayer getMediaPlayer() {
+    public MediaPlayer getMediaPlayer() {
 
         return mediaPlayer;
     }

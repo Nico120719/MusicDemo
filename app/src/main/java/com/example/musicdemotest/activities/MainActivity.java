@@ -1,7 +1,11 @@
 package com.example.musicdemotest.activities;
 
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.musicdemotest.R;
+import com.example.musicdemotest.models.MusicPlayer;
+
+import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
 
 import android.media.MediaPlayer;
 
@@ -10,26 +14,20 @@ import android.os.Bundle;
 
 import android.view.View;
 
-import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
-
-import android.widget.TextView;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.example.musicdemotest.models.MusicPlayer;
-import com.example.musicdemotest.models.MyMediaPlayer;
-import com.example.musicdemotest.R;
+import androidx.appcompat.app.AppCompatActivity;
+
 
 import java.io.IOException;
-
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private MyMediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer;
 
     private boolean wasPaused;
 
@@ -37,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
 
+        super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
 
@@ -76,11 +74,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
 
+
         super.onStart();
-
-        String language = getResources().getConfiguration().locale.getDisplayLanguage();
-
-        Toast.makeText(this, language, Toast.LENGTH_LONG).show();
 
         if (!wasPaused) {
 
@@ -96,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
 
+
         super.onPause();
 
         mediaPlayer.reset();
@@ -104,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public static void onStartMusic(MyMediaPlayer mediaPlayer, AssetFileDescriptor assetFileDescriptor) {
+    public static void onStartMusic(MediaPlayer mediaPlayer, AssetFileDescriptor assetFileDescriptor) {
 
 
         try {
@@ -121,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
             mediaPlayer.start();
 
+
         } catch (IOException e) {
 
             e.printStackTrace();
@@ -131,17 +128,11 @@ public class MainActivity extends AppCompatActivity {
     public void onAfficher(View view) {
 
 
-        String buttonText = ((Button) view).getText().toString();
+        String categorie = ((Button) view).getText().toString();
 
-        Bundle bundle = new Bundle();
+        Intent intent = new Intent(this, ListActivity.class);
 
-        Intent intent = new Intent(this, DetailsActivity.class);
-
-        bundle.putString("instrument", buttonText);
-
-        bundle.putParcelable("mediaplayer", mediaPlayer);
-
-        intent.putExtras(bundle);
+        intent.putExtra("categorie", categorie);
 
         startActivity(intent);
     }

@@ -18,7 +18,7 @@ import java.io.IOException;
 public class Download {
 
 
-    public static void saveSample(Context context, int resId, String title)  {
+    public static void saveSample(Context context, int resId, String nom)  {
 
 
         try {
@@ -31,17 +31,17 @@ public class Download {
 
             if (!directory.exists()) directory.mkdir();
 
-            File sample = new File(directory, title + ".wav");
+            File sample = new File(directory, nom);
 
             FileOutputStream fileOutputStream = new FileOutputStream(sample);
 
-            byte[] buf = new byte[1024];
+            byte[] buffer = new byte[1024];
 
-            int len;
+            int length;
 
-            while((len = inputStream.read(buf)) > 0) {
+            while((length = inputStream.read(buffer)) > 0) {
 
-                fileOutputStream.write(buf,0, len);
+                fileOutputStream.write(buffer,0, length);
             }
 
             inputStream.close();
@@ -51,6 +51,7 @@ public class Download {
             fileOutputStream.close();
 
             Toast.makeText(context, context.getString(R.string.downloadsuccessful), Toast.LENGTH_LONG).show();
+
 
         } catch (IOException e) {
 
