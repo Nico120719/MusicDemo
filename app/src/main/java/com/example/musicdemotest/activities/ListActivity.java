@@ -6,10 +6,14 @@ import com.example.musicdemotest.models.SampleAdapter;
 
 import static com.example.musicdemotest.models.Sample.filterSamples;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 
 import android.os.Bundle;
 
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,6 +64,14 @@ public class ListActivity extends AppCompatActivity {
 
 
         listingView.setOnItemClickListener((adapterView, view, i, l) -> {
+
+            AlphaAnimation alpha = new AlphaAnimation(1, 0.5f);
+
+            alpha.setDuration(0);
+
+            alpha.setFillAfter(true);
+
+            view.startAnimation(alpha);
 
             Intent intent = new Intent(this, DetailsActivity.class);
 
