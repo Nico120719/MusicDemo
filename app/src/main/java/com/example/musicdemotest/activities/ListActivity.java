@@ -6,14 +6,12 @@ import com.example.musicdemotest.models.SampleAdapter;
 
 import static com.example.musicdemotest.models.Sample.filterSamples;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 
 import android.os.Bundle;
 
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.animation.AlphaAnimation;
+
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
