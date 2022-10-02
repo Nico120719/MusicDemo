@@ -29,6 +29,8 @@ public class DetailsActivity extends AppCompatActivity  {
 
     private String sample;
 
+    private String categorie;
+
     private String sampleRootName;
 
     private MediaPlayer mediaPlayer;
@@ -60,6 +62,8 @@ public class DetailsActivity extends AppCompatActivity  {
 
 
         sample = getIntent().getStringExtra("sample");
+
+        categorie = getIntent().getStringExtra("categorie");
 
         sampleRootName = sample.substring(0, sample.length() - 4);
 
@@ -161,6 +165,6 @@ public class DetailsActivity extends AppCompatActivity  {
 
                 .getIdentifier(sampleRootName, "raw", getPackageName());
 
-        Download.saveSample(this, resId, sample);
+        Download.saveSample(this, resId, sample, categorie);
     }
 }

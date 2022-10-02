@@ -18,7 +18,7 @@ import java.io.IOException;
 public class Download {
 
 
-    public static void saveSample(Context context, int resId, String nom)  {
+    public static void saveSample(Context context, int resId, String nom, String categorie)  {
 
 
         try {
@@ -27,7 +27,7 @@ public class Download {
 
             File directory = new File(Environment.getExternalStorageDirectory()
 
-                    .getAbsolutePath() + "/Download/Marco_&_Nico_Samples/");
+                    .getAbsolutePath() + "/Download/Marco_&_Nico_Samples/" + categorie);
 
             if (!directory.exists()) directory.mkdir();
 

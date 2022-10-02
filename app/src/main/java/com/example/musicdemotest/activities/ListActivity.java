@@ -20,6 +20,8 @@ import java.util.ArrayList;
 public class ListActivity extends AppCompatActivity {
 
 
+    private String categorie;
+
     private ListView listingView;
 
     private ArrayList<Sample> filteredSamples;
@@ -44,7 +46,7 @@ public class ListActivity extends AppCompatActivity {
 
         listingView = findViewById(R.id.listingView);
 
-        String categorie = getIntent().getStringExtra("categorie");
+        categorie = getIntent().getStringExtra("categorie");
 
         filteredSamples = filterSamples(categorie);
 
@@ -62,6 +64,8 @@ public class ListActivity extends AppCompatActivity {
             Intent intent = new Intent(this, DetailsActivity.class);
 
             intent.putExtra("sample", filteredSamples.get(i).getName());
+
+            intent.putExtra("categorie", categorie);
 
             startActivity(intent);
         });

@@ -217,18 +217,34 @@ public class Sample {
     }
 
 
+    public static ArrayList<Sample> filterSamples(String categorie) {
+
+
+        ArrayList<Sample> filteredSamples = new ArrayList<>();
+
+        for (Sample sample : getSamples()) {
+
+            if (sample.getCategory().equalsIgnoreCase(translateString(categorie)))
+
+                filteredSamples.add(sample);
+        }
+
+        return filteredSamples;
+    }
+
+
     public static String translateString(String categorie) {
 
 
-        if (categorie.equalsIgnoreCase("cordes")) categorie = "strings";
+        if (categorie.equalsIgnoreCase("Cordes")) categorie = "Strings";
 
-        if (categorie.equalsIgnoreCase("vents")) categorie = "horns";
+        if (categorie.equalsIgnoreCase("Vents")) categorie = "Horns";
 
-        if (categorie.equalsIgnoreCase("percussions")) categorie = "drums";
+        if (categorie.equalsIgnoreCase("Percussions")) categorie = "Drums";
 
-        if (categorie.equalsIgnoreCase("claviers")) categorie = "synths";
+        if (categorie.equalsIgnoreCase("Claviers")) categorie = "Synths";
 
-        if (categorie.equalsIgnoreCase("monde")) categorie = "world";
+        if (categorie.equalsIgnoreCase("Monde")) categorie = "World";
 
         return categorie;
     }
@@ -248,6 +264,30 @@ public class Sample {
                         "Slow Trip Hop drum sample",
 
                         "0:15",
+
+                        false),
+
+                new Sample("industrialdrums.mp3",
+
+                        "Drums",
+
+                        "Échantillon de percussion industrielle",
+
+                        "Industrial drum sample",
+
+                        "0:11",
+
+                        false),
+
+                new Sample("fastdrumsnare.wav",
+
+                        "Drums",
+
+                        "Percussion Jazz tempo rapide",
+
+                        "Fast tempo Jazz drum sample",
+
+                        "0:02",
 
                         false),
 
@@ -301,18 +341,5 @@ public class Sample {
         ));
     }
 
-    public static ArrayList<Sample> filterSamples(String categorie) {
 
-
-        ArrayList<Sample> filteredSamples = new ArrayList<>();
-
-        for (Sample sample : getSamples()) {
-
-            if (sample.getCategory().equalsIgnoreCase(translateString(categorie)))
-
-                filteredSamples.add(sample);
-        }
-
-        return filteredSamples;
-    }
 }
