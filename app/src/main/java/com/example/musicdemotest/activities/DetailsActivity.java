@@ -14,6 +14,7 @@ import android.os.Handler;
 
 import android.view.View;
 
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -29,9 +30,9 @@ public class DetailsActivity extends AppCompatActivity  {
 
     private String sample;
 
-    private String categorie;
-
     private String sampleRootName;
+
+    private String categorie;
 
     private MediaPlayer mediaPlayer;
 
@@ -63,9 +64,17 @@ public class DetailsActivity extends AppCompatActivity  {
 
         sample = getIntent().getStringExtra("sample");
 
+        sampleRootName = sample.substring(0, sample.length() - 4);
+
         categorie = getIntent().getStringExtra("categorie");
 
-        sampleRootName = sample.substring(0, sample.length() - 4);
+        int resId = getResources()
+
+                .getIdentifier(categorie, "drawable", getPackageName());
+
+        ImageView image = findViewById(R.id.image);
+
+        image.setImageResource(resId);
 
         mediaPlayer = MusicPlayer.getInstance().getMediaPlayer();
 

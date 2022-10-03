@@ -78,7 +78,7 @@
                         android:background="@color/black"
                         android:contentDescription="@string/error"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/guitar"/>
+                        android:src="@drawable/strings"/>
 
                 </androidx.cardview.widget.CardView>
 
@@ -165,7 +165,7 @@
                         android:background="@color/black"
                         android:contentDescription="@string/error"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/drumset"
+                        android:src="@drawable/drums"
                         tools:ignore="ImageContrastCheck"/>
 
                 </androidx.cardview.widget.CardView>

@@ -236,15 +236,15 @@ public class Sample {
     public static String translateString(String categorie) {
 
 
-        if (categorie.equalsIgnoreCase("Cordes")) categorie = "Strings";
+        if (categorie.equalsIgnoreCase("cordes")) categorie = "strings";
 
-        if (categorie.equalsIgnoreCase("Vents")) categorie = "Horns";
+        if (categorie.equalsIgnoreCase("vents")) categorie = "horns";
 
-        if (categorie.equalsIgnoreCase("Percussions")) categorie = "Drums";
+        if (categorie.equalsIgnoreCase("percussions")) categorie = "drums";
 
-        if (categorie.equalsIgnoreCase("Claviers")) categorie = "Synths";
+        if (categorie.equalsIgnoreCase("claviers")) categorie = "synths";
 
-        if (categorie.equalsIgnoreCase("Monde")) categorie = "World";
+        if (categorie.equalsIgnoreCase("monde")) categorie = "world";
 
         return categorie;
     }
