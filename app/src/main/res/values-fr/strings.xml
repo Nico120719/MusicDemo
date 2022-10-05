@@ -9,6 +9,7 @@
     <string name="drums">percussions</string>
     <string name="synths">claviers</string>
     <string name="world">monde</string>
+    <string name="voice">vocal</string>
     <string name="error"> </string>
     <string name="sample">échantillon.wav</string>
     <string name="description">Description</string>

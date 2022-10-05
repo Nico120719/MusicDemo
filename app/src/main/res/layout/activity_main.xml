@@ -273,6 +273,49 @@
 
             </FrameLayout>
 
+            <FrameLayout
+
+                android:layout_width="360dp"
+                android:layout_height="135dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <androidx.cardview.widget.CardView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageView
+
+                        android:id="@+id/voiceImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/black"
+                        android:contentDescription="@string/error"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/vocal"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <Button
+
+                    android:id="@+id/voiceButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:selectableItemBackground"
+                    android:letterSpacing=".6"
+                    android:onClick="onAfficher"
+                    android:text="@string/voice"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    tools:ignore="UsingOnClickInXml"/>
+
+            </FrameLayout>
+
         </LinearLayout>
 
     </ScrollView>

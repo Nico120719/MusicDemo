@@ -337,6 +337,30 @@ public class Sample {
 
                         "0:09",
 
+                        false),
+
+                new Sample("cheer.wav",
+
+                        "Vocal",
+
+                        "Foule en délire",
+
+                        "Crowd cheering",
+
+                        "0:04",
+
+                        false),
+
+                new Sample("scream.wav",
+
+                        "Vocal",
+
+                        "Cri de peur",
+
+                        "Fearful scream",
+
+                        "0:01",
+
                         false)
         ));
     }
