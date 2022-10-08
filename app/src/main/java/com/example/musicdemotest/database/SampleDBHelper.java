@@ -39,7 +39,7 @@ public class SampleDBHelper extends SQLiteOpenHelper {
 
             + NAME + " TEXT, " + CATEGORY + " TEXT, " + DESCRIPTION_FR + " TEXT, " + DESCRIPTION_EN + " TEXT, "
 
-            + DUREE + " DECIMAL(4, 2), " + COLLECTION + " BOOLEAN)";
+            + DUREE + " TEXT, " + COLLECTION + " BOOLEAN)";
 
 
     public SampleDBHelper(@Nullable Context context,

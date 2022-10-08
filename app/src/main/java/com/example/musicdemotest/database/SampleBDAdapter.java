@@ -40,6 +40,10 @@ public class SampleBDAdapter {
                 null,
 
                 SampleDBHelper.VERSION);
+
+//        openBD();
+
+//        closeDB();
     }
 
 
@@ -59,6 +63,8 @@ public class SampleBDAdapter {
 
     public ArrayList<Sample> findAllSamplesByCategory(String categorie) {
 
+
+        openBD();
 
         String[] colonnes = { SampleDBHelper.NAME, SampleDBHelper.DESCRIPTION_FR,
 
@@ -99,14 +105,14 @@ public class SampleBDAdapter {
 
         if (cursor != null) cursor.close();
 
+        closeDB();
+
         return filteredSamples;
     }
 
 
     public void addSampleToCollection(String name) {
 
-
-        openBD();
 
         updateCollection(name, true);
     }

@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.collection:
 
-                Toast.makeText(MainActivity.this, "My Collection !",
+                Toast.makeText(MainActivity.this, R.string.collection,
 
                 Toast.LENGTH_SHORT).show();
 
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.ajouter:
 
-                Toast.makeText(MainActivity.this, "Added to Collection !",
+                Toast.makeText(MainActivity.this, R.string.added,
 
                 Toast.LENGTH_SHORT).show();
 

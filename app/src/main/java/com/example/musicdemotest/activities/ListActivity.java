@@ -60,7 +60,7 @@ public class ListActivity extends AppCompatActivity {
 
         filteredSamples = filterSamples(categorie);
 
-//        SampleBDAdapter bdAdapter = new SampleBDAdapter(ListActivity.this);
+        SampleBDAdapter bdAdapter = new SampleBDAdapter(ListActivity.this);
 
 //        filteredSamples = bdAdapter.findAllSamplesByCategory(Sample.translateString(categorie).toLowerCase());
 

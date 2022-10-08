@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.widget.Toast;
 
 import com.example.musicdemotest.R;
+import com.example.musicdemotest.models.Sample;
 
 import java.io.File;
 import java.io.InputStream;
@@ -27,7 +28,9 @@ public class Download {
 
             File directory = new File(Environment.getExternalStorageDirectory()
 
-                            .getAbsolutePath() + "/Download/Marco_&_Nico_Samples/" + categorie);
+                            .getAbsolutePath() + "/Download/Marco_&_Nico_Samples/"
+
+                           + Sample.translateString(categorie));
 
             if (!directory.exists()) directory.mkdir();
 
