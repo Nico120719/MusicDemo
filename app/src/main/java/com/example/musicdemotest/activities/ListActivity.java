@@ -8,6 +8,7 @@ import com.example.musicdemotest.database.SampleBDAdapter;
 import com.example.musicdemotest.models.Sample;
 import com.example.musicdemotest.models.SampleAdapter;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 
 import android.os.Bundle;
@@ -18,7 +19,9 @@ import android.view.MenuItem;
 import android.view.animation.AlphaAnimation;
 
 import android.widget.ListView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -87,6 +90,18 @@ public class ListActivity extends AppCompatActivity {
 
         return true;
     }
+
+
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+        finish();
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
 
     private void setListeners() {

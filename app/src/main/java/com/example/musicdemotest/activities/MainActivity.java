@@ -4,6 +4,7 @@ package com.example.musicdemotest.activities;
 import com.example.musicdemotest.R;
 import com.example.musicdemotest.models.MusicPlayer;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 
@@ -19,7 +20,9 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
@@ -102,6 +105,37 @@ public class MainActivity extends AppCompatActivity {
         menuCollection.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         return true;
+    }
+
+
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+        int option = item.getItemId();
+
+        switch (option) {
+
+            case R.id.collection:
+
+                Toast.makeText(MainActivity.this, "My Collection !",
+
+                Toast.LENGTH_SHORT).show();
+
+                break;
+
+
+            case R.id.ajouter:
+
+                Toast.makeText(MainActivity.this, "Added to Collection !",
+
+                Toast.LENGTH_SHORT).show();
+
+                break;
+
+        }
+            return super.onOptionsItemSelected(item);
     }
 
 

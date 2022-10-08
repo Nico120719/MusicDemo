@@ -7,6 +7,8 @@ import com.example.musicdemotest.models.MusicPlayer;
 
 import android.annotation.SuppressLint;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 
 import android.media.MediaPlayer;
@@ -22,7 +24,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.core.content.ContextCompat;
@@ -115,6 +119,43 @@ public class DetailsActivity extends AppCompatActivity  {
         menuBack.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         return true;
+    }
+
+
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+        int option = item.getItemId();
+
+        switch (option) {
+
+            case R.id.ajouter:
+
+                Toast.makeText(DetailsActivity.this, R.string.added,
+
+                Toast.LENGTH_SHORT).show();
+
+                break;
+
+
+            case R.id.collection:
+
+                Toast.makeText(DetailsActivity.this, R.string.collection,
+
+                Toast.LENGTH_SHORT).show();
+
+                break;
+
+
+            case R.id.back:
+
+               finish();
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 

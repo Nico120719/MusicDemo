@@ -14,6 +14,7 @@
     <string name="voice">vocal</string>
     <string name="error"> </string>
     <string name="add">Add</string>
+    <string name="added">Added to Collection !</string>
     <string name="collection">My Collection</string>
     <string name="addedtocollection">Sample added to collection !</string>
     <string name="removedfromcollection">Sample removed from collection !</string>
@@ -23,5 +24,6 @@
     <string name="description">Description</string>
     <string name="duree">Time</string>
     <string name="back">back</string>
+
 
 </resources>
