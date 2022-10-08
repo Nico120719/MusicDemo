@@ -27,6 +27,7 @@ public class SampleAdapter extends ArrayAdapter<Sample> {
 
     public SampleAdapter(Context context, ArrayList<Sample> samples) {
 
+
         super(context, 0, samples);
     }
 
@@ -38,7 +39,7 @@ public class SampleAdapter extends ArrayAdapter<Sample> {
 
         if (view == null) view = LayoutInflater.from(getContext())
 
-                .inflate(R.layout.itemliste, parent, false);
+                                .inflate(R.layout.itemliste, parent, false);
 
         Sample sample = getItem(position);
 
@@ -64,11 +65,11 @@ public class SampleAdapter extends ArrayAdapter<Sample> {
 
                 new int[] { getContext().getResources()
 
-                        .getColor(com.google.android.material.R.color.cardview_dark_background,
+                           .getColor(com.google.android.material.R.color.cardview_dark_background,
 
-                         getContext().getTheme()),
+                            getContext().getTheme()),
 
-                         getContext().getResources().getColor(R.color.black)});
+                            getContext().getResources().getColor(R.color.black)});
 
         gradientDrawable.setCornerRadius(20);
 

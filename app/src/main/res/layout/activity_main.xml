@@ -8,6 +8,12 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
+    <include
+        android:id="@+id/tToolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        layout="@layout/activity_details" />
+
     <ScrollView
 
         android:id="@+id/scroll"
@@ -33,7 +39,7 @@
                 android:layout_gravity="center"
                 android:paddingStart="10dp"
                 android:paddingEnd="0dp"
-                app:drawableBottomCompat="@drawable/companylogo" />
+                app:drawableBottomCompat="@drawable/companylogo"/>
 
             <TextView
 
@@ -45,16 +51,16 @@
                 android:fontFamily="@font/strait"
                 android:letterSpacing=".1"
                 android:lineSpacingExtra="10dp"
-                android:paddingLeft="10dp"
+                android:paddingStart="22dp"
                 android:paddingTop="20dp"
-                android:paddingRight="10dp"
+                android:paddingEnd="10dp"
                 android:paddingBottom="30dp"
                 android:singleLine="false"
                 android:text="@string/categories"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
 
             <FrameLayout
 

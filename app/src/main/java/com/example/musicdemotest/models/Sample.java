@@ -3,7 +3,6 @@ package com.example.musicdemotest.models;
 
 import android.widget.ProgressBar;
 
-import com.example.musicdemotest.activities.ListActivity;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
@@ -23,18 +22,46 @@ public class Sample {
 
     private String duree;
 
-    private MaterialButton button;
-
-    private ProgressBar progressBar;
-
     private boolean collection;
 
     private String messageFR;
 
     private String messageEN;
 
+    private ProgressBar progressBar;
+
 
     public Sample() {}
+
+
+    public Sample(String name, String descriptionFR, String descriptionEN,
+
+                  String duree) {
+
+        this.name = name;
+
+        this.descriptionFR = descriptionFR;
+
+        this.descriptionEN = descriptionEN;
+
+        this.duree = duree;
+    }
+
+
+    public Sample(String name, String category, String descriptionFR, String descriptionEN,
+
+                  String duree) {
+
+        this.name = name;
+
+        this.category = category;
+
+        this.descriptionFR = descriptionFR;
+
+        this.descriptionEN = descriptionEN;
+
+        this.duree = duree;
+    }
 
 
     public Sample(String name, String category, String descriptionFR, String descriptionEN,
@@ -55,48 +82,6 @@ public class Sample {
     }
 
 
-    public Sample(String name, String category, String descriptionFR, String descriptionEN,
-
-                  String duree, MaterialButton button, boolean collection) {
-
-        this.name = name;
-
-        this.category = category;
-
-        this.descriptionFR = descriptionFR;
-
-        this.descriptionEN = descriptionEN;
-
-        this.duree= duree;
-
-        this.button = button;
-
-        this.collection = collection;
-    }
-
-
-    public Sample(String name, String category, String descriptionFR, String descriptionEN,
-
-                  String duree, MaterialButton button, ProgressBar progressBar, boolean collection) {
-
-        this.name = name;
-
-        this.category = category;
-
-        this.descriptionFR = descriptionFR;
-
-        this.descriptionEN = descriptionEN;
-
-        this.duree = duree;
-
-        this.button = button;
-
-        this.progressBar = progressBar;
-
-        this.collection = collection;
-    }
-
-
     public String getName() {
 
         return name;
@@ -112,12 +97,6 @@ public class Sample {
     public String getCategory() {
 
         return category;
-    }
-
-
-    public void setCategory(String category) {
-
-        this.category = category;
     }
 
 
@@ -151,22 +130,7 @@ public class Sample {
     }
 
 
-    public void setDuree(String duree) {
-
-        this.duree = duree;
-    }
-
-
-    public MaterialButton getButton() {
-
-        return button;
-    }
-
-
-    public void setButton(MaterialButton button) {
-
-        this.button = button;
-    }
+    public void setButton(MaterialButton button) {}
 
 
     public ProgressBar getProgressBar() {
@@ -181,7 +145,7 @@ public class Sample {
     }
 
 
-    public boolean isCollection() {
+    public Boolean isCollection() {
 
         return collection;
     }
@@ -257,7 +221,7 @@ public class Sample {
 
                 new Sample("drums.wav",
 
-                        "Drums",
+                        "drums",
 
                         "Échantillon de percussion lent style Trip Hop",
 
@@ -269,7 +233,7 @@ public class Sample {
 
                 new Sample("industrialdrums.mp3",
 
-                        "Drums",
+                        "drums",
 
                         "Échantillon de percussion industrielle",
 
@@ -281,7 +245,7 @@ public class Sample {
 
                 new Sample("fastdrumsnare.wav",
 
-                        "Drums",
+                        "drums",
 
                         "Percussion Jazz tempo rapide",
 
@@ -293,7 +257,7 @@ public class Sample {
 
                 new Sample("horns.wav",
 
-                        "Horns",
+                        "horns",
 
                         "Échantillon de trompette Jazz lent",
 
@@ -305,7 +269,7 @@ public class Sample {
 
                 new Sample("strings.wav",
 
-                        "Strings",
+                        "strings",
 
                         "Grattement de guitare accoustique",
 
@@ -317,7 +281,7 @@ public class Sample {
 
                 new Sample("synths.wav",
 
-                        "Synths",
+                        "synths",
 
                         "Clavier électonique Pop",
 
@@ -329,7 +293,7 @@ public class Sample {
 
                 new Sample("world.wav",
 
-                        "World",
+                        "world",
 
                         "Échantllon koto oriental",
 
@@ -341,7 +305,7 @@ public class Sample {
 
                 new Sample("cheer.wav",
 
-                        "Vocal",
+                        "vocal",
 
                         "Foule en délire",
 
@@ -353,7 +317,7 @@ public class Sample {
 
                 new Sample("scream.wav",
 
-                        "Vocal",
+                        "vocal",
 
                         "Cri de peur",
 
@@ -364,6 +328,4 @@ public class Sample {
                         false)
         ));
     }
-
-
 }

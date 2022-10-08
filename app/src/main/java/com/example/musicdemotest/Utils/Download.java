@@ -27,7 +27,7 @@ public class Download {
 
             File directory = new File(Environment.getExternalStorageDirectory()
 
-                    .getAbsolutePath() + "/Download/Marco_&_Nico_Samples/" + categorie);
+                            .getAbsolutePath() + "/Download/Marco_&_Nico_Samples/" + categorie);
 
             if (!directory.exists()) directory.mkdir();
 

@@ -1,15 +1,20 @@
 package com.example.musicdemotest.activities;
 
-import com.example.musicdemotest.R;
-import com.example.musicdemotest.models.Sample;
-import com.example.musicdemotest.models.SampleAdapter;
 
 import static com.example.musicdemotest.models.Sample.filterSamples;
+
+import com.example.musicdemotest.R;
+import com.example.musicdemotest.database.SampleBDAdapter;
+import com.example.musicdemotest.models.Sample;
+import com.example.musicdemotest.models.SampleAdapter;
 
 import android.content.Intent;
 
 import android.os.Bundle;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.animation.AlphaAnimation;
 
 import android.widget.ListView;
@@ -52,9 +57,35 @@ public class ListActivity extends AppCompatActivity {
 
         filteredSamples = filterSamples(categorie);
 
+//        SampleBDAdapter bdAdapter = new SampleBDAdapter(ListActivity.this);
+
+//        filteredSamples = bdAdapter.findAllSamplesByCategory(Sample.translateString(categorie).toLowerCase());
+
         SampleAdapter adapter = new SampleAdapter(this, filteredSamples);
 
         listingView.setAdapter(adapter);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+
+        super.onCreateOptionsMenu(menu);
+
+        MenuInflater inflater = getMenuInflater();
+
+        inflater.inflate(R.menu.menu_detail, menu);
+
+        MenuItem menuAdd = menu.findItem(R.id.ajouter);
+
+        menuAdd.setVisible(false);
+
+        MenuItem menuCollection = menu.findItem(R.id.collection);
+
+        menuCollection.setVisible(false);
+
+        return true;
     }
 
 

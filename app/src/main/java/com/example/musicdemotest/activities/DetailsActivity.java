@@ -1,5 +1,6 @@
 package com.example.musicdemotest.activities;
 
+
 import com.example.musicdemotest.R;
 import com.example.musicdemotest.Utils.Download;
 import com.example.musicdemotest.models.MusicPlayer;
@@ -9,9 +10,13 @@ import android.annotation.SuppressLint;
 import android.content.res.AssetFileDescriptor;
 
 import android.media.MediaPlayer;
+
 import android.os.Bundle;
 import android.os.Handler;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import android.widget.ImageView;
@@ -21,6 +26,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.core.content.ContextCompat;
+
+import com.example.musicdemotest.models.Sample;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -70,7 +77,9 @@ public class DetailsActivity extends AppCompatActivity  {
 
         int resId = getResources()
 
-                .getIdentifier(categorie, "drawable", getPackageName());
+                   .getIdentifier(Sample.translateString(categorie).toLowerCase(),
+
+                   "drawable", getPackageName());
 
         ImageView image = findViewById(R.id.image);
 
@@ -90,6 +99,25 @@ public class DetailsActivity extends AppCompatActivity  {
     }
 
 
+    @SuppressLint("UseCompatLoadingForDrawables")
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+
+        super.onCreateOptionsMenu(menu);
+
+        MenuInflater inflater = getMenuInflater();
+
+        inflater.inflate(R.menu.menu_detail, menu);
+
+        MenuItem menuBack = menu.findItem(R.id.back);
+
+        menuBack.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        return true;
+    }
+
+
     private void setListeners() {
 
 
@@ -101,11 +129,12 @@ public class DetailsActivity extends AppCompatActivity  {
 
     public void onPlayMusic(View view) {
 
+
         if (!isPaused && !mediaPlayer.isPlaying()) {
 
             int resId = getResources()
 
-                    .getIdentifier(sampleRootName, "raw", getPackageName());
+                       .getIdentifier(sampleRootName, "raw", getPackageName());
 
             AssetFileDescriptor assetFileDescriptor = getResources().openRawResourceFd(resId);
 
