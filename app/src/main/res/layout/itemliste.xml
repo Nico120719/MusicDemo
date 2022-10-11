@@ -37,12 +37,17 @@
                 android:id="@+id/txtNom"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:letterSpacing=".1"
                 android:paddingBottom="10dp"
+                android:drawablePadding="10dp"
+                android:includeFontPadding="false"
                 android:text="@string/sample"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:drawableLeftCompat="@drawable/vocalicon"
+                app:iconPadding="10dp"/>
 
             <TextView
 

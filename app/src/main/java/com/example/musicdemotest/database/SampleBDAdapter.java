@@ -41,9 +41,9 @@ public class SampleBDAdapter {
 
                 SampleDBHelper.VERSION);
 
-//        openBD();
+        openBD();
 
-//        closeDB();
+        closeDB();
     }
 
 

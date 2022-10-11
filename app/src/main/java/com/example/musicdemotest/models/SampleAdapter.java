@@ -3,8 +3,10 @@ package com.example.musicdemotest.models;
 
 import com.example.musicdemotest.R;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 
 import android.os.Build;
@@ -31,8 +33,9 @@ public class SampleAdapter extends ArrayAdapter<Sample> {
         super(context, 0, samples);
     }
 
-
+    
     @RequiresApi(api = Build.VERSION_CODES.M)
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public View getView(int position, View view, ViewGroup parent) {
 
@@ -44,6 +47,18 @@ public class SampleAdapter extends ArrayAdapter<Sample> {
         Sample sample = getItem(position);
 
         TextView nom = view.findViewById(R.id.txtNom);
+
+        String categorie = sample.getCategory() + "icon";
+
+        int iconId = getContext().getResources()
+
+                .getIdentifier(categorie, "drawable", getContext().getPackageName());
+
+        Drawable icon = getContext().getResources().getDrawable(iconId);
+
+        icon.setBounds(0, 0, 50, 60);
+
+        nom.setCompoundDrawables(icon, null, null, null);
 
         TextView description = view.findViewById(R.id.txtDescription);
 
