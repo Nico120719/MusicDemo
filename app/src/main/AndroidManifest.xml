@@ -19,11 +19,14 @@
         android:theme="@style/Theme.MusicDemoTest"
         tools:targetApi="s">
         <activity
+            android:name=".activities.AboutUsActivity"
+            android:exported="false"/>
+        <activity
             android:name=".activities.ListActivity"
             android:exported="true"/>
         <activity
             android:name=".activities.DetailsActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">

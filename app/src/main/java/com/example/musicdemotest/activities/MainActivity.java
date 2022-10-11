@@ -98,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
 
         menuAdd.setVisible(false);
 
+        MenuItem menuDelete = menu.findItem(R.id.supprimer);
+
+        menuDelete.setVisible(false);
+
         MenuItem menuBack = menu.findItem(R.id.back);
 
         menuBack.setVisible(false);
@@ -105,6 +109,10 @@ public class MainActivity extends AppCompatActivity {
         MenuItem menuCollection = menu.findItem(R.id.collection);
 
         menuCollection.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        MenuItem aboutUs = menu.findItem(R.id.about);
+
+        aboutUs.collapseActionView();
 
         return true;
     }
@@ -128,16 +136,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
 
-            case R.id.ajouter:
+            case R.id.about:
 
-                Toast.makeText(MainActivity.this, R.string.added,
-
-                Toast.LENGTH_SHORT).show();
-
-                break;
+                startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
 
         }
-            return super.onOptionsItemSelected(item);
+
+        return super.onOptionsItemSelected(item);
     }
 
 

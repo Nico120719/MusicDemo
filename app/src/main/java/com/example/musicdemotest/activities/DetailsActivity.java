@@ -3,12 +3,11 @@ package com.example.musicdemotest.activities;
 
 import com.example.musicdemotest.R;
 import com.example.musicdemotest.Utils.Download;
+import com.example.musicdemotest.database.SampleBDAdapter;
 import com.example.musicdemotest.models.MusicPlayer;
 
 import android.annotation.SuppressLint;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 
 import android.media.MediaPlayer;
@@ -118,6 +117,10 @@ public class DetailsActivity extends AppCompatActivity  {
 
         menuBack.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
+        MenuItem aboutUs = menu.findItem(R.id.about);
+
+        aboutUs.setVisible(false);
+
         return true;
     }
 
@@ -127,15 +130,22 @@ public class DetailsActivity extends AppCompatActivity  {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
 
+        SampleBDAdapter bdAdapter = new SampleBDAdapter(DetailsActivity.this);
+
         int option = item.getItemId();
 
         switch (option) {
 
             case R.id.ajouter:
 
-                Toast.makeText(DetailsActivity.this, R.string.added,
+                bdAdapter.updateCollection(sample, true);
 
-                Toast.LENGTH_SHORT).show();
+                break;
+
+
+            case R.id.supprimer:
+
+                bdAdapter.updateCollection(sample, false);
 
                 break;
 

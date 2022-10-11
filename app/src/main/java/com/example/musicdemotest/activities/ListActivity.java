@@ -80,9 +80,21 @@ public class ListActivity extends AppCompatActivity {
 
         menuAdd.setVisible(false);
 
+        MenuItem menuDelete = menu.findItem(R.id.supprimer);
+
+        menuDelete.setVisible(false);
+
         MenuItem menuCollection = menu.findItem(R.id.collection);
 
         menuCollection.setVisible(false);
+
+        MenuItem menuBack = menu.findItem(R.id.back);
+
+        menuBack.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        MenuItem aboutUs = menu.findItem(R.id.about);
+
+        aboutUs.setVisible(false);
 
         return true;
     }

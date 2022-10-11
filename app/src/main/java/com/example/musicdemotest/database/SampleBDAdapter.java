@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.ContentValues;
 
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -109,39 +110,48 @@ public class SampleBDAdapter {
     }
 
 
-    public void addSampleToCollection(String name) {
-
-
-        updateCollection(name, true);
-    }
-
-
-    public void removeSampleFromCollection(String name) {
-
-
-        updateCollection(name, false);
-    }
-
-
     public void updateCollection(String sampleName, boolean flag) {
 
 
         openBD();
 
-        ContentValues contentValues = new ContentValues();
+        if (checkSampleStatus(sampleName, flag)) {
 
-        String filtre = SampleDBHelper.NAME + " = ?";
+            int messageID = flag ? R.string.alreadyincollection : R.string.notincollection;
 
-        String[] args = { sampleName };
+            Toast.makeText(context, context.getString(messageID), Toast.LENGTH_LONG).show();
+        }
 
-        String message = String.valueOf(flag ? R.string.addedtocollection : R.string.removedfromcollection);
+        else {
 
-        contentValues.put(SampleDBHelper.COLLECTION, flag);
+            ContentValues contentValues = new ContentValues();
 
-        database.update(SampleDBHelper.TABLE, contentValues, filtre, args);
+            String filtre = SampleDBHelper.NAME + " = ?";
 
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            String[] args = { sampleName };
+
+            int messageID = flag ? R.string.addedtocollection : R.string.removedfromcollection;
+
+            contentValues.put(SampleDBHelper.COLLECTION, flag);
+
+            database.update(SampleDBHelper.TABLE, contentValues, filtre, args);
+
+            Toast.makeText(context, context.getString(messageID), Toast.LENGTH_LONG).show();
+        }
 
         closeDB();
+    }
+
+
+    public boolean checkSampleStatus(String sampleName, boolean flag)  {
+
+
+        String selection = SampleDBHelper.NAME + " = ? AND " + SampleDBHelper.COLLECTION + " = ?";
+
+        int sqlFlag = flag ? 1 : 0;
+
+        String[] args = { sampleName, String.valueOf(sqlFlag)};
+
+        return (DatabaseUtils.queryNumEntries(database, SampleDBHelper.TABLE, selection, args) > 0);
     }
 }

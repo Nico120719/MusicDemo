@@ -17,12 +17,15 @@
     <string name="description">Description</string>
     <string name="duree">Durée</string>
     <string name="add">Ajouter</string>
-    <string name="added">Ajouté à la Collection !</string>
-    <string name="collection">Ma Collection</string>
+    <string name="delete">Supprimer</string>
     <string name="addedtocollection">Échantillon ajouté à la collection !</string>
+    <string name="alreadyincollection">Échantillon déjà dans votre collection!</string>
+    <string name="notincollection">Cet échantillon n\'est pas dans votre collection …</string>
     <string name="removedfromcollection">Échantillon supprimé de la collection !</string>
+    <string name="collection">Ma Collection</string>
     <string name="downloadsuccessful">Fichier audio téléchargé sur le stockage interne !</string>
     <string name="downloadfailed">Impossible de télécharger le fichier audio !</string>
     <string name="back">back</string>
+    <string name="about">À Propos</string>
 
 </resources>
