@@ -12,13 +12,13 @@
       <quote-values-containing-separator value="true" />
       <quote-all-values value="false" />
       <value-separator value="" />
-      <file-name value="" />
-      <file-location value="" />
+      <file-name value="Samples.sql" />
+      <file-location value="D:\Hafed_A17" />
       <scope value="GLOBAL" />
       <destination value="FILE" />
-      <format value="EXCEL" />
-      <charset value="windows-1252" />
-      <charset value="windows-1252" />
+      <format value="SQL" />
+      <charset value="UTF-8" />
+      <charset value="UTF-8" />
     </export-instructions>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -33,7 +33,9 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="499d8237-1384-41be-8cf7-a8d871c8f06f" object-ref="schemas/main/tables/Samples" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="499d8237-1384-41be-8cf7-a8d871c8f06f" />

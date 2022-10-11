@@ -20,7 +20,6 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
-
 import java.util.ArrayList;
 
 
@@ -48,7 +47,7 @@ public class SampleAdapter extends ArrayAdapter<Sample> {
 
         TextView nom = view.findViewById(R.id.txtNom);
 
-        String categorie = sample.getCategory() + "icon";
+        String categorie = Sample.translateString(sample.getCategory()).toLowerCase() + "icon";
 
         int iconId = getContext().getResources()
 

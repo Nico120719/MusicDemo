@@ -59,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
                 findViewById(R.id.synthsButton),
 
-                findViewById(R.id.worldButton));
+                findViewById(R.id.worldButton),
+
+                findViewById(R.id.voiceButton));
 
         int textSize = 34;
 

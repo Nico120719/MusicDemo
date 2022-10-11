@@ -40,10 +40,6 @@ public class SampleBDAdapter {
                 null,
 
                 SampleDBHelper.VERSION);
-
-        openBD();
-
-        closeDB();
     }
 
 
@@ -66,9 +62,11 @@ public class SampleBDAdapter {
 
         openBD();
 
-        String[] colonnes = { SampleDBHelper.NAME, SampleDBHelper.DESCRIPTION_FR,
+        String[] colonnes = { SampleDBHelper.NAME, SampleDBHelper.CATEGORY,
 
-                 SampleDBHelper.DESCRIPTION_EN, SampleDBHelper.DUREE };
+                SampleDBHelper.DESCRIPTION_FR, SampleDBHelper.DESCRIPTION_EN,
+
+                SampleDBHelper.DUREE };
 
         Cursor cursor = null;
 
@@ -90,7 +88,7 @@ public class SampleBDAdapter {
 
                 Sample sample = new Sample(cursor.getString(0), cursor.getString(1),
 
-                             cursor.getString(2), cursor.getString(3));
+                             cursor.getString(2), cursor.getString(3), cursor.getString(4));
 
                 filteredSamples.add(sample);
 

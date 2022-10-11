@@ -1,8 +1,6 @@
 package com.example.musicdemotest.activities;
 
 
-import static com.example.musicdemotest.models.Sample.filterSamples;
-
 import com.example.musicdemotest.R;
 import com.example.musicdemotest.database.SampleBDAdapter;
 import com.example.musicdemotest.models.Sample;
@@ -58,11 +56,9 @@ public class ListActivity extends AppCompatActivity {
 
         categorie = getIntent().getStringExtra("categorie");
 
-        filteredSamples = filterSamples(categorie);
-
         SampleBDAdapter bdAdapter = new SampleBDAdapter(ListActivity.this);
 
-//        filteredSamples = bdAdapter.findAllSamplesByCategory(Sample.translateString(categorie).toLowerCase());
+        filteredSamples = bdAdapter.findAllSamplesByCategory(Sample.translateString(categorie).toLowerCase());
 
         SampleAdapter adapter = new SampleAdapter(this, filteredSamples);
 
