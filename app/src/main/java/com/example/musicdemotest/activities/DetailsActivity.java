@@ -8,7 +8,6 @@ import com.example.musicdemotest.models.MusicPlayer;
 
 import android.annotation.SuppressLint;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 

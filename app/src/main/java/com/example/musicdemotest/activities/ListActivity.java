@@ -156,7 +156,6 @@ public class ListActivity extends AppCompatActivity {
     }
 
 
-
     private void setListeners() {
 
 
