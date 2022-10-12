@@ -8,7 +8,6 @@ import com.example.musicdemotest.models.MusicPlayer;
 
 import android.annotation.SuppressLint;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 
@@ -25,14 +24,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.core.content.ContextCompat;
 
-import com.example.musicdemotest.models.Sample;
 
 import com.google.android.material.button.MaterialButton;
 

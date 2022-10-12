@@ -12,7 +12,6 @@ import android.content.res.AssetFileDescriptor;
 
 import android.media.MediaPlayer;
 
-import android.os.Build;
 import android.os.Bundle;
 
 import android.view.Menu;
@@ -21,13 +20,11 @@ import android.view.MenuItem;
 import android.view.View;
 
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -49,21 +46,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mediaPlayer = MusicPlayer.getInstance().getMediaPlayer();
-
-        List<Button> buttons = List.of(
-
-                findViewById(R.id.stringsButton),
-
-                findViewById(R.id.hornsButton),
-
-                findViewById(R.id.drumsButton),
-
-                findViewById(R.id.synthsButton),
-
-                findViewById(R.id.worldButton),
-
-                findViewById(R.id.voiceButton));
-
     }
 
 
