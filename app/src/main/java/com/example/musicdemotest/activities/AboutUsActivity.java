@@ -26,8 +26,6 @@ public class AboutUsActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
 
-    private AssetFileDescriptor assetFileDescriptor;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +44,7 @@ public class AboutUsActivity extends AppCompatActivity {
 
         mediaPlayer = MusicPlayer.getInstance().getMediaPlayer();
 
-        outro(mediaPlayer, assetFileDescriptor);
+        outro(mediaPlayer);
 
         TextView thankYou = findViewById(R.id.thanks);
 
@@ -129,15 +127,15 @@ public class AboutUsActivity extends AppCompatActivity {
 
         super.onRestart();
 
-        outro(mediaPlayer, assetFileDescriptor);
+        outro(mediaPlayer);
 
     }
 
 
-    private void outro(MediaPlayer mediaPlayer, AssetFileDescriptor assetFileDescriptor) {
+    private void outro(MediaPlayer mediaPlayer) {
 
 
-        assetFileDescriptor = getResources().openRawResourceFd(R.raw.braincandy);
+        AssetFileDescriptor assetFileDescriptor = getResources().openRawResourceFd(R.raw.braincandy);
 
         MainActivity.onStartMusic(mediaPlayer, assetFileDescriptor);
 
