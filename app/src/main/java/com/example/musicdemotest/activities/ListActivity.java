@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.animation.AlphaAnimation;
 
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
@@ -27,8 +28,6 @@ import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
 
-
-    private String categorie;
 
     private ListView listingView;
 
@@ -49,16 +48,43 @@ public class ListActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onRestart() {
+
+
+        super.onRestart();
+
+        setContentView(R.layout.activity_list);
+
+        setWidgets();
+
+        setListeners();
+    }
+
+
     private void setWidgets() {
 
 
         listingView = findViewById(R.id.listingView);
 
-        categorie = getIntent().getStringExtra("categorie");
+        String categorie = getIntent().getStringExtra("categorie");
 
         SampleBDAdapter bdAdapter = new SampleBDAdapter(ListActivity.this);
 
-        filteredSamples = bdAdapter.findAllSamplesByCategory(Sample.translateString(categorie).toLowerCase());
+        if (typeListe().equals("collection"))  {
+
+            filteredSamples = bdAdapter.findSamples(null);
+
+            TextView titre = findViewById(R.id.instructions);
+
+            titre.setText(R.string.collection);
+
+            titre.setLetterSpacing(0.2f);
+
+            titre.setTextSize(24);
+        }
+
+        else  filteredSamples = bdAdapter.findSamples(categorie);
 
         SampleAdapter adapter = new SampleAdapter(this, filteredSamples);
 
@@ -84,10 +110,6 @@ public class ListActivity extends AppCompatActivity {
 
         menuDelete.setVisible(false);
 
-        MenuItem menuCollection = menu.findItem(R.id.collection);
-
-        menuCollection.setVisible(false);
-
         MenuItem menuBack = menu.findItem(R.id.back);
 
         menuBack.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
@@ -105,7 +127,23 @@ public class ListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
 
-        finish();
+        int option = item.getItemId();
+
+        switch (option) {
+
+            case R.id.collection:
+
+                getIntent().putExtra("revalidate", true);
+
+                recreate();
+
+                break;
+
+
+            case R.id.back:
+
+                finish();
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -129,9 +167,26 @@ public class ListActivity extends AppCompatActivity {
 
             intent.putExtra("sample", filteredSamples.get(i).getName());
 
-            intent.putExtra("categorie", categorie);
+            intent.putExtra("categorie", filteredSamples.get(i).getCategory());
 
             startActivity(intent);
         });
+    }
+
+
+    public String typeListe() {
+
+
+        boolean collection = getIntent().getBooleanExtra("collection", false);
+
+        boolean revalidate = getIntent().getBooleanExtra("revalidate", false);
+
+        String type;
+
+        if (collection || revalidate) type = "collection";
+
+        else type = "catégories";
+
+        return type;
     }
 }

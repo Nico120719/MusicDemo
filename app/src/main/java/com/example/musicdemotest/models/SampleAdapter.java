@@ -32,7 +32,7 @@ public class SampleAdapter extends ArrayAdapter<Sample> {
         super(context, 0, samples);
     }
 
-    
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
@@ -47,7 +47,7 @@ public class SampleAdapter extends ArrayAdapter<Sample> {
 
         TextView nom = view.findViewById(R.id.txtNom);
 
-        String categorie = Sample.translateString(sample.getCategory()).toLowerCase() + "icon";
+        String categorie = Sample.translateString(sample.getCategory()) + "icon";
 
         int iconId = getContext().getResources()
 
@@ -73,13 +73,19 @@ public class SampleAdapter extends ArrayAdapter<Sample> {
 
         duree.setText(sample.getDuree());
 
+        int color;
+
+        if (!sample.isCollection()) color = com.google.android.material.R.color.cardview_dark_background;
+
+        else color = R.color.progressempty;
+
         GradientDrawable gradientDrawable = new GradientDrawable(
 
                 GradientDrawable.Orientation.TOP_BOTTOM,
 
                 new int[] { getContext().getResources()
 
-                           .getColor(com.google.android.material.R.color.cardview_dark_background,
+                           .getColor(color,
 
                             getContext().getTheme()),
 

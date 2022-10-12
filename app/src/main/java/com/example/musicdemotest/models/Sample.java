@@ -3,8 +3,6 @@ package com.example.musicdemotest.models;
 
 import android.widget.ProgressBar;
 
-import com.google.android.material.button.MaterialButton;
-
 
 public class Sample {
 
@@ -20,8 +18,6 @@ public class Sample {
     private String duree;
 
     private boolean collection;
-
-    private ProgressBar progressBar;
 
 
     public Sample() {}

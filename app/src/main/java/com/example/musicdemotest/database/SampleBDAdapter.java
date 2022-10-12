@@ -58,7 +58,7 @@ public class SampleBDAdapter {
     }
 
 
-    public ArrayList<Sample> findAllSamplesByCategory(String categorie) {
+    public ArrayList<Sample> findSamples(String categorie) {
 
 
         openBD();
@@ -67,13 +67,27 @@ public class SampleBDAdapter {
 
                 SampleDBHelper.DESCRIPTION_FR, SampleDBHelper.DESCRIPTION_EN,
 
-                SampleDBHelper.DUREE };
+                SampleDBHelper.DUREE, SampleDBHelper.COLLECTION };
 
         Cursor cursor = null;
 
-        String filtre = SampleDBHelper.CATEGORY + " = ?";
+        String filtre;
 
-        String[] args = { categorie };
+        String[] args;
+
+        if (categorie == null) {
+
+            filtre = SampleDBHelper.COLLECTION + " = ?";
+
+            args = new String[] { String.valueOf(1) };
+        }
+
+        else {
+
+            filtre = SampleDBHelper.CATEGORY + " = ?";
+
+            args = new String[] { categorie };
+        }
 
         ArrayList<Sample> filteredSamples = new ArrayList<>();
 
@@ -89,13 +103,14 @@ public class SampleBDAdapter {
 
                 Sample sample = new Sample(cursor.getString(0), cursor.getString(1),
 
-                             cursor.getString(2), cursor.getString(3), cursor.getString(4));
+                             cursor.getString(2), cursor.getString(3),
+
+                             cursor.getString(4), cursor.getInt(5) != 0);
 
                 filteredSamples.add(sample);
 
                 cursor.moveToNext();
             }
-
 
         } catch (SQLException sqlException) {
 

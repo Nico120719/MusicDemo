@@ -8,6 +8,8 @@ import com.example.musicdemotest.models.MusicPlayer;
 
 import android.annotation.SuppressLint;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 
 import android.media.MediaPlayer;
@@ -80,9 +82,7 @@ public class DetailsActivity extends AppCompatActivity  {
 
         int resId = getResources()
 
-                   .getIdentifier(Sample.translateString(categorie).toLowerCase(),
-
-                   "drawable", getPackageName());
+                   .getIdentifier(categorie, "drawable", getPackageName());
 
         ImageView image = findViewById(R.id.image);
 
@@ -152,9 +152,11 @@ public class DetailsActivity extends AppCompatActivity  {
 
             case R.id.collection:
 
-                Toast.makeText(DetailsActivity.this, R.string.collection,
+                Intent intent = new Intent(DetailsActivity.this, ListActivity.class);
 
-                Toast.LENGTH_SHORT).show();
+                intent.putExtra("collection", true);
+
+                startActivity(intent);
 
                 break;
 

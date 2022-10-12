@@ -3,8 +3,10 @@ package com.example.musicdemotest.activities;
 
 import com.example.musicdemotest.R;
 import com.example.musicdemotest.models.MusicPlayer;
+import com.example.musicdemotest.models.Sample;
 
 import android.annotation.SuppressLint;
+
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 
@@ -20,7 +22,6 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,24 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.worldButton),
 
                 findViewById(R.id.voiceButton));
-
-        int textSize = 34;
-
-        int THRESHOLD = 7;
-
-        int MIN_TEXT_SIZE = 24;
-
-        for (Button button : buttons) if (button.getText().toString().length() > THRESHOLD)
-
-            textSize = MIN_TEXT_SIZE;
-
-        for (Button button : buttons)
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-
-                button.setTextSize(TextView.AUTO_SIZE_TEXT_TYPE_UNIFORM,textSize);
-
-
 
     }
 
@@ -129,9 +112,11 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.collection:
 
-                Toast.makeText(MainActivity.this, R.string.collection,
+                Intent intent = new Intent(MainActivity.this, ListActivity.class);
 
-                Toast.LENGTH_SHORT).show();
+                intent.putExtra("collection", true);
+
+                startActivity(intent);
 
                 break;
 
@@ -207,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, ListActivity.class);
 
-        intent.putExtra("categorie", categorie);
+        intent.putExtra("categorie", Sample.translateString(categorie).toLowerCase());
 
         startActivity(intent);
     }
