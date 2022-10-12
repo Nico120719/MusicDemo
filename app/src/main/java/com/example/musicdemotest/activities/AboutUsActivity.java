@@ -2,6 +2,7 @@ package com.example.musicdemotest.activities;
 
 
 import com.example.musicdemotest.R;
+import com.example.musicdemotest.models.MusicPlayer;
 
 import androidx.annotation.NonNull;
 
@@ -10,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import android.view.Menu;
@@ -19,6 +22,12 @@ import android.widget.TextView;
 
 
 public class AboutUsActivity extends AppCompatActivity {
+
+
+    private MediaPlayer mediaPlayer;
+
+    private AssetFileDescriptor assetFileDescriptor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +44,13 @@ public class AboutUsActivity extends AppCompatActivity {
     private void setWidgets() {
 
 
+        mediaPlayer = MusicPlayer.getInstance().getMediaPlayer();
+
+        outro(mediaPlayer, assetFileDescriptor);
+
         TextView thankYou = findViewById(R.id.thanks);
 
         thankYou.setText(R.string.thanks);
-
-
     }
 
 
@@ -99,5 +110,37 @@ public class AboutUsActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    protected void onPause() {
+
+
+        super.onPause();
+
+        mediaPlayer.reset();
+    }
+
+
+    @Override
+    protected void onRestart() {
+
+
+        super.onRestart();
+
+        outro(mediaPlayer, assetFileDescriptor);
+
+    }
+
+
+    private void outro(MediaPlayer mediaPlayer, AssetFileDescriptor assetFileDescriptor) {
+
+
+        assetFileDescriptor = getResources().openRawResourceFd(R.raw.braincandy);
+
+        MainActivity.onStartMusic(mediaPlayer, assetFileDescriptor);
+
+        mediaPlayer.setOnCompletionListener(MediaPlayer::reset);
     }
 }
