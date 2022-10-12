@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class AboutUsActivity extends AppCompatActivity {
@@ -25,6 +26,19 @@ public class AboutUsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_about_us);
+
+        setWidgets();
+    }
+
+
+    private void setWidgets() {
+
+
+        TextView thankYou = findViewById(R.id.thanks);
+
+        thankYou.setText(R.string.thanks);
+
+
     }
 
 

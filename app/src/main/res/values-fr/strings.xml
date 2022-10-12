@@ -27,5 +27,6 @@
     <string name="downloadfailed">Impossible de télécharger le fichier audio !</string>
     <string name="back">back</string>
     <string name="about">À Propos</string>
+    <string name="thanks">Merci à https://sampleswap.org pour les échantillons de musique gratuits !</string>
 
 </resources>
