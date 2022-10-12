@@ -131,6 +131,13 @@ public class ListActivity extends AppCompatActivity {
 
         switch (option) {
 
+            case R.id.home:
+
+                startActivity(new Intent(ListActivity.this, MainActivity.class));
+
+                break;
+
+
             case R.id.collection:
 
                 getIntent().putExtra("revalidate", true);

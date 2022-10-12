@@ -16,6 +16,7 @@
     <string name="sample">échantillon.wav</string>
     <string name="description">Description</string>
     <string name="duree">Durée</string>
+    <string name="home">Home</string>
     <string name="add">Ajouter</string>
     <string name="delete">Supprimer</string>
     <string name="addedtocollection">Échantillon ajouté à la collection !</string>

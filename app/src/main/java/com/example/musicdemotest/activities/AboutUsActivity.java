@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.Menu;
@@ -81,7 +82,21 @@ public class AboutUsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
 
-        finish();
+        int option = item.getItemId();
+
+        switch (option) {
+
+            case R.id.home:
+
+                startActivity(new Intent(AboutUsActivity.this, MainActivity.class));
+
+                break;
+
+
+            case R.id.back:
+
+                finish();
+        }
 
         return super.onOptionsItemSelected(item);
     }

@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
         inflater.inflate(R.menu.menu_detail, menu);
 
+        MenuItem home = menu.findItem(R.id.home);
+
+        home.setVisible(false);
+
         MenuItem menuAdd = menu.findItem(R.id.ajouter);
 
         menuAdd.setVisible(false);

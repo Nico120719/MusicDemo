@@ -13,6 +13,9 @@
     <string name="world">world</string>
     <string name="voice">vocal</string>
     <string name="error"> </string>
+    <string name="sample">sample.wav</string>
+    <string name="description">Description</string>
+    <string name="home">Home</string>
     <string name="add">Add</string>
     <string name="delete">Delete</string>
     <string name="addedtocollection">Sample added to collection !</string>
@@ -22,8 +25,6 @@
     <string name="collection">My Collection</string>
     <string name="downloadsuccessful">Audio file downloaded to Internal Storage !</string>
     <string name="downloadfailed">Could not download audio file !</string>
-    <string name="sample">sample.wav</string>
-    <string name="description">Description</string>
     <string name="duree">Time</string>
     <string name="back">back</string>
     <string name="about">About Us</string>

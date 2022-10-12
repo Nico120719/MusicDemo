@@ -8,6 +8,7 @@ import com.example.musicdemotest.models.MusicPlayer;
 
 import android.annotation.SuppressLint;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 
@@ -133,6 +134,13 @@ public class DetailsActivity extends AppCompatActivity  {
         int option = item.getItemId();
 
         switch (option) {
+
+            case R.id.home:
+
+                startActivity(new Intent(DetailsActivity.this, MainActivity.class));
+
+                break;
+
 
             case R.id.ajouter:
 
