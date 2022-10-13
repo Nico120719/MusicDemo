@@ -22,6 +22,7 @@
     <string name="addedtocollection">Échantillon ajouté à la collection !</string>
     <string name="alreadyincollection">Échantillon déjà dans votre collection!</string>
     <string name="notincollection">Cet échantillon n\'est pas dans votre collection …</string>
+    <string name="notfound">Aucun échantillon présentement dans votre Collection</string>
     <string name="removedfromcollection">Échantillon supprimé de la collection !</string>
     <string name="collection">Ma Collection</string>
     <string name="downloadsuccessful">Fichier audio téléchargé sur le stockage interne !</string>

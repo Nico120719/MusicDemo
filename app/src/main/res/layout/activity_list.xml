@@ -52,7 +52,28 @@
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"/>
+
+        <TextView
+
+            android:id="@+id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:fontFamily="@font/strait"
+            android:letterSpacing=".1"
+            android:lineSpacingExtra="10dp"
+            android:paddingStart="20dp"
+            android:paddingTop="60dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="30dp"
+            android:singleLine="false"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone"/>
 
         <ListView
 

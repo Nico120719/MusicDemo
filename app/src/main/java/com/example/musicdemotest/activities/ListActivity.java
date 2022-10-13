@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.AlphaAnimation;
 
 import android.widget.ListView;
@@ -117,6 +118,16 @@ public class ListActivity extends AppCompatActivity {
         SampleAdapter adapter = new SampleAdapter(this, filteredSamples);
 
         listingView.setAdapter(adapter);
+
+
+        if (filteredSamples.size() == 0) {
+
+            TextView emptyListmessage = findViewById(R.id.empty);
+
+            emptyListmessage.setText(R.string.notfound);
+
+            emptyListmessage.setVisibility(View.VISIBLE);
+        }
     }
 
     /* Options de la barre de Menus pour cette Activité */
