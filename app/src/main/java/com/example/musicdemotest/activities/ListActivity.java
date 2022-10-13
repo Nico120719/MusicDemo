@@ -113,12 +113,7 @@ public class ListActivity extends AppCompatActivity {
         else  filteredSamples = bdAdapter.findSamples(categorie);
 
 
-        /* Envoi de la liste au SampleAdapter qui affichera la ListView */
-
-        SampleAdapter adapter = new SampleAdapter(this, filteredSamples);
-
-        listingView.setAdapter(adapter);
-
+        /* Vérifie si la liste retournée est vide */
 
         if (filteredSamples.size() == 0) {
 
@@ -127,6 +122,15 @@ public class ListActivity extends AppCompatActivity {
             emptyListmessage.setText(R.string.notfound);
 
             emptyListmessage.setVisibility(View.VISIBLE);
+            
+
+        } else {
+
+            /* Envoi de la liste au SampleAdapter qui affichera la ListView */
+
+            SampleAdapter adapter = new SampleAdapter(this, filteredSamples);
+
+            listingView.setAdapter(adapter);
         }
     }
 
