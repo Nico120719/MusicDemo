@@ -22,6 +22,7 @@
     <string name="alreadyincollection">Sample already in collection !</string>
     <string name="removedfromcollection">Sample removed from collection !</string>
     <string name="notincollection">This Sample is not in your collection …</string>
+    <string name="notfound">No samples currently in your Collection</string>
     <string name="collection">My Collection</string>
     <string name="downloadsuccessful">Audio file downloaded to Internal Storage !</string>
     <string name="downloadfailed">Could not download audio file !</string>

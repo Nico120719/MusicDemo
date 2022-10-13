@@ -27,6 +27,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.IOException;
 
 
+ /**
+
+ * Nicolas Ineksiak - Marko Perotic
+
+ * Database MusicSamples stockée dans le répertoire assets/databases de vette application
+
+ * Échantillons de musique gratuits provenant de https://sampleswap.org
+
+ */
+
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -45,9 +56,16 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+
+        /* Initialisation du Singleton MediaPlayer */
+
         mediaPlayer = MusicPlayer.getInstance().getMediaPlayer();
     }
 
+
+    /* Options de la barre de Menus pour cette Activité */
+
+    /* Collection et À Propos seulement */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -59,25 +77,31 @@ public class MainActivity extends AppCompatActivity {
 
         inflater.inflate(R.menu.menu_detail, menu);
 
+
         MenuItem home = menu.findItem(R.id.home);
 
         home.setVisible(false);
+
 
         MenuItem menuAdd = menu.findItem(R.id.ajouter);
 
         menuAdd.setVisible(false);
 
+
         MenuItem menuDelete = menu.findItem(R.id.supprimer);
 
         menuDelete.setVisible(false);
+
 
         MenuItem menuBack = menu.findItem(R.id.back);
 
         menuBack.setVisible(false);
 
+
         MenuItem menuCollection = menu.findItem(R.id.collection);
 
         menuCollection.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
 
         MenuItem aboutUs = menu.findItem(R.id.about);
 
@@ -96,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
 
         switch (option) {
 
+            /* Déterminera la liste Collection à afficher */
+
             case R.id.collection:
 
                 Intent intent = new Intent(MainActivity.this, ListActivity.class);
@@ -106,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
 
+            /* Redirection vers l'Activité À Propos */
 
             case R.id.about:
 
@@ -125,7 +152,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (!wasPaused) {
 
+            /* Recherche de la Ressource de l'échantillon musical de la page de départ */
+
             AssetFileDescriptor assetFileDescriptor = getResources().openRawResourceFd(R.raw.intro);
+
+
+            /* Appel à la méthode de déclenchement de la musique */
 
             onStartMusic(mediaPlayer, assetFileDescriptor);
 
@@ -146,6 +178,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /* Initialisation de la musique d'introduction */
+
     public static void onStartMusic(MediaPlayer mediaPlayer, AssetFileDescriptor assetFileDescriptor) {
 
 
@@ -158,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
                         assetFileDescriptor.getLength());
 
             assetFileDescriptor.close();
+
 
             mediaPlayer.prepare();
 
@@ -174,11 +209,17 @@ public class MainActivity extends AppCompatActivity {
     public void onAfficher(View view) {
 
 
+        /* Recherche la catégorie musicale définie par le click du bouton
+
+        /* et envoie l'information à l'Activité ListActivity */
+
         String categorie = ((Button) view).getText().toString();
+
 
         Intent intent = new Intent(this, ListActivity.class);
 
         intent.putExtra("categorie", Sample.translateString(categorie).toLowerCase());
+
 
         startActivity(intent);
     }

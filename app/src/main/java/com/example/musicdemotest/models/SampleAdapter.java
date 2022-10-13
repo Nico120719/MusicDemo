@@ -43,9 +43,17 @@ public class SampleAdapter extends ArrayAdapter<Sample> {
 
                                 .inflate(R.layout.itemliste, parent, false);
 
+
+        /* Recherche le Sample ( nom et catégorie ) */
+
         Sample sample = getItem(position);
 
         TextView nom = view.findViewById(R.id.txtNom);
+
+        nom.setText(sample.getName());
+
+
+        /* Recherche de l'icône appropriée à la catégorie du Sample */
 
         String categorie = Sample.translateString(sample.getCategory()) + "icon";
 
@@ -55,15 +63,27 @@ public class SampleAdapter extends ArrayAdapter<Sample> {
 
         Drawable icon = getContext().getResources().getDrawable(iconId);
 
+
+        /* Ajout de padding */
+
         icon.setBounds(0, 0, 50, 60);
 
         nom.setCompoundDrawables(icon, null, null, null);
 
-        TextView description = view.findViewById(R.id.txtDescription);
+
+        /* Durée en secondes du Sample */
 
         TextView duree = view.findViewById(R.id.txtDuree);
 
-        nom.setText(sample.getName());
+        duree.setText(sample.getDuree());
+
+
+        /* Affiche la description en anglais ou français, */
+
+        /* en fonction des paramètres de configuration du téléphone */
+
+
+        TextView description = view.findViewById(R.id.txtDescription);
 
         String language = getContext().getResources().getConfiguration().locale.getDisplayLanguage();
 
@@ -71,13 +91,17 @@ public class SampleAdapter extends ArrayAdapter<Sample> {
 
         else description.setText(sample.getDescriptionFR());
 
-        duree.setText(sample.getDuree());
+
+        /* Couleur différente attribuée aux échantillons ne figurant pas dans la collection ( gris ) */
+
+        /* et ceux de la collection ( bleu ) */
 
         int color;
 
         if (!sample.isCollection()) color = com.google.android.material.R.color.cardview_dark_background;
 
         else color = R.color.progressempty;
+
 
         GradientDrawable gradientDrawable = new GradientDrawable(
 

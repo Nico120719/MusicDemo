@@ -1,8 +1,7 @@
 package com.example.musicdemotest.models;
 
 
-import android.widget.ProgressBar;
-
+/* Modèle et attributs de l'échantillon */
 
 public class Sample {
 
@@ -21,22 +20,6 @@ public class Sample {
 
 
     public Sample() {}
-
-
-    public Sample(String name, String category, String descriptionFR, String descriptionEN,
-
-                  String duree) {
-
-        this.name = name;
-
-        this.category = category;
-
-        this.descriptionFR = descriptionFR;
-
-        this.descriptionEN = descriptionEN;
-
-        this.duree = duree;
-    }
 
 
     public Sample(String name, String category, String descriptionFR, String descriptionEN,
@@ -99,11 +82,7 @@ public class Sample {
     }
 
 
-    public void setCollection(boolean collection) {
-
-        this.collection = collection;
-    }
-
+    /* Convertit le nom de la catégorie si la configuration du langage est en français */
 
     public static String translateString(String categorie) {
 
