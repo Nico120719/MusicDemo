@@ -9,8 +9,11 @@ import com.example.musicdemotest.models.SampleAdapter;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,6 +26,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -46,6 +50,10 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_list);
+
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         setWidgets();
 
@@ -165,7 +173,9 @@ public class ListActivity extends AppCompatActivity {
 
 
         MenuItem aboutUs = menu.findItem(R.id.about);
-
+        SpannableString s = new SpannableString(aboutUs.getTitle());
+        s.setSpan(new ForegroundColorSpan(Color.BLACK), 0, s.length(), 0);
+        aboutUs.setTitle(s);
         aboutUs.setVisible(false);
 
         return true;

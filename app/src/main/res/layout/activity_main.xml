@@ -9,11 +9,7 @@
     tools:context=".activities.MainActivity">
 
     <include
-        android:id="@+id/tToolbar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        layout="@layout/activity_details" />
-
+        layout="@layout/toolbar" />
     <ScrollView
 
         android:id="@+id/scroll"
@@ -23,7 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <LinearLayout
 
@@ -35,7 +31,7 @@
 
                 android:id="@+id/logo"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:paddingStart="10dp"
                 android:paddingEnd="0dp"

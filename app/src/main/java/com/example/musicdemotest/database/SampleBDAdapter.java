@@ -34,7 +34,7 @@ public class SampleBDAdapter {
 
         this.bdHelper = new SampleDBHelper(
 
-                context);
+                context, SampleDBHelper.DATABASE, null, SampleDBHelper.VERSION);
     }
 
 

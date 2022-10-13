@@ -10,16 +10,22 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 
+import android.graphics.Color;
 import android.media.MediaPlayer;
 
 import android.os.Bundle;
 
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
 import android.widget.Button;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,18 +58,23 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        setTheme(R.style.MenuTheme);
+        //setTheme(R.style.MenuTheme);
 
         setContentView(R.layout.activity_main);
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         /* Initialisation du Singleton MediaPlayer */
 
         mediaPlayer = MusicPlayer.getInstance().getMediaPlayer();
+
+
     }
 
 
-    /* Options de la barre de Menus pour cette Activité */
+
+
+     /* Options de la barre de Menus pour cette Activité */
 
     /* Collection et À Propos seulement */
 
@@ -104,7 +115,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         MenuItem aboutUs = menu.findItem(R.id.about);
-
+        SpannableString s = new SpannableString(aboutUs.getTitle());
+        s.setSpan(new ForegroundColorSpan(Color.BLACK), 0, s.length(), 0);
+        aboutUs.setTitle(s);
         aboutUs.collapseActionView();
 
         return true;

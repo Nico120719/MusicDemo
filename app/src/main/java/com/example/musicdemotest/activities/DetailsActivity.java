@@ -11,11 +11,14 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 
+import android.graphics.Color;
 import android.media.MediaPlayer;
 
 import android.os.Bundle;
 import android.os.Handler;
 
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,6 +32,7 @@ import androidx.annotation.NonNull;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 
@@ -66,6 +70,10 @@ public class DetailsActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_details);
+
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         setWidgets();
 
@@ -141,7 +149,9 @@ public class DetailsActivity extends AppCompatActivity  {
 
 
         MenuItem aboutUs = menu.findItem(R.id.about);
-
+        SpannableString s = new SpannableString(aboutUs.getTitle());
+        s.setSpan(new ForegroundColorSpan(Color.BLACK), 0, s.length(), 0);
+        aboutUs.setTitle(s);
         aboutUs.setVisible(false);
 
         return true;

@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidApp/AndroidStudioProjects/MusicDemo/app/src/main/res/layout/activity_about_us.xml" value="0.45018115942028986" />
+        <entry key="..\:/AndroidApp/AndroidStudioProjects/MusicDemo/app/src/main/res/layout/activity_details.xml" value="0.2695035460992908" />
+        <entry key="..\:/AndroidApp/AndroidStudioProjects/MusicDemo/app/src/main/res/layout/activity_list.xml" value="0.2695035460992908" />
+        <entry key="..\:/AndroidApp/AndroidStudioProjects/MusicDemo/app/src/main/res/layout/activity_main.xml" value="0.5401041666666667" />
+        <entry key="..\:/AndroidApp/AndroidStudioProjects/MusicDemo/app/src/main/res/layout/itemliste.xml" value="0.45018115942028986" />
+        <entry key="..\:/AndroidApp/AndroidStudioProjects/MusicDemo/app/src/main/res/layout/tool_bar.xml" value="0.5541666666666667" />
+        <entry key="..\:/AndroidApp/AndroidStudioProjects/MusicDemo/app/src/main/res/layout/toolbar.xml" value="0.45018115942028986" />
+        <entry key="..\:/AndroidApp/AndroidStudioProjects/MusicDemo/app/src/main/res/menu/menu_detail.xml" value="0.5541666666666667" />
         <entry key="..\:/Hafed_A17_Mobile/MusicDemoTest/app/src/main/res/drawable-v23/icon.xml" value="0.1515" />
         <entry key="..\:/Hafed_A17_Mobile/MusicDemoTest/app/src/main/res/drawable-v23/logo.xml" value="0.148" />
         <entry key="..\:/Hafed_A17_Mobile/MusicDemoTest/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1275" />
