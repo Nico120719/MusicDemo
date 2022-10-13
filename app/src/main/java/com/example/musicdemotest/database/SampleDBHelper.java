@@ -35,17 +35,6 @@ public class SampleDBHelper extends SQLiteOpenHelper {
     public static final String COLLECTION = "Collection";
 
 
-    /* Requête de création de la table Samples */
-
-    public static final String DDL = "CREATE TABLE " + TABLE + " ("
-
-            + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-
-            + NAME + " TEXT, " + CATEGORY + " TEXT, " + DESCRIPTION_FR + " TEXT, " + DESCRIPTION_EN + " TEXT, "
-
-            + DUREE + " TEXT, " + COLLECTION + " BOOLEAN)";
-
-
     public SampleDBHelper(@Nullable Context context,
 
                           @Nullable String name,
@@ -63,7 +52,9 @@ public class SampleDBHelper extends SQLiteOpenHelper {
 
         /* Exécution de la requête de céation de la table Samples */
 
-        sqLiteDatabase.execSQL(DDL);
+        sqLiteDatabase.execSQL(Queries.DDL);
+
+        sqLiteDatabase.execSQL(Queries.INSERT);
     }
 
 
