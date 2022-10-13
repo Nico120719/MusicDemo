@@ -26,6 +26,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 
+/* Affiche la liste des échantillons, soit de la Collection, */
+
+/* soit de la catégorie sélectionnée dans MainActivity */
+
 public class ListActivity extends AppCompatActivity {
 
 
@@ -67,13 +71,31 @@ public class ListActivity extends AppCompatActivity {
 
         listingView = findViewById(R.id.listingView);
 
+
+        /* Récupère l'information de la catégorie sélectionnée dans l'Activité précédente */
+
         String categorie = getIntent().getStringExtra("categorie");
+
+
+
+        /* Initialisation du SampleBDAdapter qui fera les recherches dans la Database  */
 
         SampleBDAdapter bdAdapter = new SampleBDAdapter(ListActivity.this);
 
+
+        /* Vérifie si l'on recherche la liste de la collection */
+
         if (typeListe().equals("collection"))  {
 
+
+
+            /* SELECT * FROM Samples WHERE Collection = true */
+
             filteredSamples = bdAdapter.findSamples(null);
+
+
+
+            /* Changement du texte d'entête de l'Activité */
 
             TextView titre = findViewById(R.id.instructions);
 
@@ -84,13 +106,22 @@ public class ListActivity extends AppCompatActivity {
             titre.setTextSize(24);
         }
 
+
+        /* SELECT * FROM Samples WHERE Catégorie = <categorie> */
+
         else  filteredSamples = bdAdapter.findSamples(categorie);
+
+
+        /* Envoi de la liste au SampleAdapter qui affichera la ListView */
 
         SampleAdapter adapter = new SampleAdapter(this, filteredSamples);
 
         listingView.setAdapter(adapter);
     }
 
+    /* Options de la barre de Menus pour cette Activité */
+
+    /* Home, Collection et Retour (<-) seulement */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -102,17 +133,21 @@ public class ListActivity extends AppCompatActivity {
 
         inflater.inflate(R.menu.menu_detail, menu);
 
+
         MenuItem menuAdd = menu.findItem(R.id.ajouter);
 
         menuAdd.setVisible(false);
+
 
         MenuItem menuDelete = menu.findItem(R.id.supprimer);
 
         menuDelete.setVisible(false);
 
+
         MenuItem menuBack = menu.findItem(R.id.back);
 
         menuBack.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
 
         MenuItem aboutUs = menu.findItem(R.id.about);
 
@@ -131,12 +166,16 @@ public class ListActivity extends AppCompatActivity {
 
         switch (option) {
 
+            /* Retour à l'Activité MainActivity ( Home ) */
+
             case R.id.home:
 
                 startActivity(new Intent(ListActivity.this, MainActivity.class));
 
                 break;
 
+
+            /* Servira à activer la Collection à partir de la liste des catégories en revalidant l'Activité */
 
             case R.id.collection:
 
@@ -161,6 +200,9 @@ public class ListActivity extends AppCompatActivity {
 
         listingView.setOnItemClickListener((adapterView, view, i, l) -> {
 
+
+            /* Changement de l'opacité on click */
+
             AlphaAnimation alpha = new AlphaAnimation(1, 0.5f);
 
             alpha.setDuration(0);
@@ -169,7 +211,11 @@ public class ListActivity extends AppCompatActivity {
 
             view.startAnimation(alpha);
 
+
             Intent intent = new Intent(this, DetailsActivity.class);
+
+
+            /* Envoi des informations sur le Nom et Catégorie de l'échantillon à l'Activité ListActivity */
 
             intent.putExtra("sample", filteredSamples.get(i).getName());
 
@@ -179,6 +225,8 @@ public class ListActivity extends AppCompatActivity {
         });
     }
 
+
+    /* Méthode qui recherche s'il s'agit d'une liste collection ou de catégories */
 
     public String typeListe() {
 

@@ -4,6 +4,8 @@ import android.app.Application;
 import android.media.MediaPlayer;
 
 
+/* Création d'un Singleton MediaPlayer dans la classe nommée MusicPlayer */
+
 public class MusicPlayer extends Application {
 
 

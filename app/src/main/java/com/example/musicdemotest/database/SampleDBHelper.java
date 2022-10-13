@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 public class SampleDBHelper extends SQLiteOpenHelper {
 
 
+    /* Déclaration du nom de la Database MusicSamples et des colonnes de la table Samples */
+
     public static final String DATABASE = "MusicSamples";
 
     public static final int VERSION = 1;
@@ -32,6 +34,8 @@ public class SampleDBHelper extends SQLiteOpenHelper {
 
     public static final String COLLECTION = "Collection";
 
+
+    /* Requête de création de la table Samples */
 
     public static final String DDL = "CREATE TABLE " + TABLE + " ("
 
@@ -57,6 +61,7 @@ public class SampleDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
+        /* Exécution de la requête de céation de la table Samples */
 
         sqLiteDatabase.execSQL(DDL);
     }

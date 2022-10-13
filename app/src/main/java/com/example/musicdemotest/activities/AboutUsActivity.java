@@ -42,15 +42,27 @@ public class AboutUsActivity extends AppCompatActivity {
     private void setWidgets() {
 
 
+        /* Initialisation du Singleton MediaPlayer */
+
         mediaPlayer = MusicPlayer.getInstance().getMediaPlayer();
 
+
+        /* Appel à la méthode qui démarre la musique */
+
         outro(mediaPlayer);
+
+
+        /* Remerciements */
 
         TextView thankYou = findViewById(R.id.thanks);
 
         thankYou.setText(R.string.thanks);
     }
 
+
+    /* Options de la barre de Menus pour cette Activité */
+
+    /* Home et À Retour (<-) seulement */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -62,21 +74,26 @@ public class AboutUsActivity extends AppCompatActivity {
 
         inflater.inflate(R.menu.menu_detail, menu);
 
+
         MenuItem menuAdd = menu.findItem(R.id.ajouter);
 
         menuAdd.setVisible(false);
+
 
         MenuItem menuDelete = menu.findItem(R.id.supprimer);
 
         menuDelete.setVisible(false);
 
+
         MenuItem menuCollection = menu.findItem(R.id.collection);
 
         menuCollection.setVisible(false);
 
+
         MenuItem menuBack = menu.findItem(R.id.back);
 
         menuBack.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
 
         MenuItem aboutUs = menu.findItem(R.id.about);
 
@@ -94,6 +111,8 @@ public class AboutUsActivity extends AppCompatActivity {
         int option = item.getItemId();
 
         switch (option) {
+
+            /* Retour à l'Activité MainActivity ( Home ) */
 
             case R.id.home:
 
@@ -121,6 +140,8 @@ public class AboutUsActivity extends AppCompatActivity {
     }
 
 
+    /* Redémarrage de la musique au retour à l'Activité */
+
     @Override
     protected void onRestart() {
 
@@ -131,6 +152,8 @@ public class AboutUsActivity extends AppCompatActivity {
 
     }
 
+
+    /* Méthode de démarrage de la musique */
 
     private void outro(MediaPlayer mediaPlayer) {
 
