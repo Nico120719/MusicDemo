@@ -123,6 +123,8 @@ public class AboutUsActivity extends AppCompatActivity {
 
             case R.id.back:
 
+                mediaPlayer.reset();
+
                 finish();
         }
 
