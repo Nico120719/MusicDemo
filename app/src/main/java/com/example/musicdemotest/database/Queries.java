@@ -43,6 +43,25 @@ interface Queries {
 
             "('cheer.wav', 'vocal', 'Foule en délire', 'Crowd cheering', '0:04', 0), " +
 
-            "('scream.wav', 'vocal', 'Cri d''effroi', 'Fearful scream', '0:02', 0)";
+            "('darksynth.wav', 'synths', 'Synthétiseur futuriste', 'Futiristic synth sample', '0:03', 0), " +
 
+            "('distordedsynth.wav', 'synths', 'Synthétiseur avec distortion style Techno', 'Techno-style distorded synth', '0:10', 0), " +
+
+            "('harmony.wav', 'vocal', 'Chorale de voix féminines', 'Female choir', '0:10', 0), " +
+
+            "('bluesguitar.wav', 'strings', 'Guitare accoutique de style Blues', 'Blues-style accoustic guitar', '0:06', 0), " +
+
+            "('powerguitar.wav', 'strings', 'Guitare électrique style Rock & Roll', 'Rock & Roll-style electric guitar', '0:09', 0), " +
+
+            "('sitar.wav', 'world', 'Sitar indienne', 'Indian sitar', '0:04', 0), " +
+
+            "('marimba.wav', 'world', 'Marimba africaine', 'African marimba', '0:01', 0), " +
+
+            "('flute.wav', 'world', 'Mélodie de flûte chinoise', 'Chinese melodic flute sample', '0:12', 0), " +
+
+            "('saxophone.wav', 'horns', 'Mélodie de saxophone', 'Saxophone melody', '0:05', 0), " +
+
+            "('frenchhorn.wav', 'horns', 'Cor d''orchestre symphonique', 'Symphonic orchestra french horn', '0:06', 0), " +
+
+            "('scream.wav', 'vocal', 'Cri d''effroi', 'Fearful scream', '0:02', 0)";
 }
