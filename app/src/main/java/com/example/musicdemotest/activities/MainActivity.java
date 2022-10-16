@@ -31,7 +31,7 @@ import java.io.IOException;
 
  * Nicolas Ineksiak - Marko Perotic
 
- * Database MusicSamples stockée dans le répertoire assets/databases de vette application
+ * Database MusicSamples stockée dans le répertoire assets/databases de cette application
 
  * Échantillons de musique gratuits provenant de https://sampleswap.org
 
